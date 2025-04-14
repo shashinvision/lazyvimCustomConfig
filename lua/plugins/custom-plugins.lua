@@ -9,4 +9,5 @@ return {
   { "MattesGroeger/vim-bookmarks" },
   { "kylechui/nvim-surround" },
   { "mg979/vim-visual-multi" },
+  { "benlubas/molten-nvim" },
 }

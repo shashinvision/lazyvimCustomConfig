@@ -38,3 +38,16 @@ vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 
 -- Git Messenger
 vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
+
+-- Molten like Jupyter Notebook experience
+vim.keymap.set("n", "<leader>j", "Molten", { silent = true, desc = "Jupyter Notebook experience" })
+vim.keymap.set("n", "<leader>Ji", ":MoltenInit<CR>", { silent = true, desc = "Initialize the plugin" })
+vim.keymap.set("n", "<leader>je", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
+vim.keymap.set("n", "<leader>jl", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
+vim.keymap.set("n", "<leader>jr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
+vim.keymap.set(
+  "v",
+  "<leader>ju",
+  ":<C-u>MoltenEvaluateVisual<CR>gv",
+  { silent = true, desc = "evaluate visual selection" }
+)
