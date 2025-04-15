@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>[", "<S-$>%", { noremap = true, desc = "Move to end
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true }) --" Para seleccionar todo con Control + A
 
 -- UndoTree sirve para ver un listado en forma de arbol de los cambios en un archivo, es como un versionamiento a tiempo real
-vim.keymap.set("n", "<leader>U", "Undotree", { noremap = true })
+vim.keymap.set("n", "<leader>U", "Undotree", { noremap = true, desc = "Undotree" })
 vim.keymap.set("n", "<leader>Ut", ":UndotreeToggle<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>Uf", ":UndotreeFocus<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>Uh", ":UndotreeHide<CR>", { noremap = true })
@@ -39,15 +39,17 @@ vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 -- Git Messenger
 vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
 
--- Molten like Jupyter Notebook experience
-vim.keymap.set("n", "<leader>j", "Molten", { silent = true, desc = "Jupyter Notebook experience" })
-vim.keymap.set("n", "<leader>ji", ":MoltenInit<CR>", { silent = true, desc = "Initialize the plugin" })
-vim.keymap.set("n", "<leader>je", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
-vim.keymap.set("n", "<leader>jl", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
-vim.keymap.set("n", "<leader>jr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
-vim.keymap.set(
-  "v",
-  "<leader>ju",
-  ":<C-u>MoltenEvaluateVisual<CR>gv",
-  { silent = true, desc = "evaluate visual selection" }
-)
+local quarto = require("quarto")
+quarto.setup()
+vim.keymap.set("n", "<leader>j", quarto.quartoPreview, { silent = true, noremap = true, desc = "Quarto(Jupyter)" })
+vim.keymap.set("n", "<leader>jp", quarto.quartoPreview, { silent = true, noremap = true, desc = "Quarto Preview" })
+
+local runner = require("quarto.runner")
+vim.keymap.set("n", "<leader>jc", runner.run_cell, { desc = "run cell", silent = true })
+vim.keymap.set("n", "<leader>ja", runner.run_above, { desc = "run cell and above", silent = true })
+vim.keymap.set("n", "<leader>jA", runner.run_all, { desc = "run all cells", silent = true })
+vim.keymap.set("n", "<leader>jl", runner.run_line, { desc = "run line", silent = true })
+vim.keymap.set("v", "<leader>j", runner.run_range, { desc = "run visual range", silent = true })
+vim.keymap.set("n", "<leader>jR", function()
+  runner.run_all(true)
+end, { desc = "run all cells of all languages", silent = true })
