@@ -8,7 +8,5 @@ return {
   "mbbill/undotree",
   "MattesGroeger/vim-bookmarks",
   "kylechui/nvim-surround",
-  "jmbuhr/otter.nvim",
   "nvim-treesitter/nvim-treesitter",
-  "quarto-dev/quarto-nvim",
 }
