@@ -42,6 +42,14 @@ vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
 -- Run Files
 vim.keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
 
+-- ToggleTerm
+vim.keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true })
+vim.keymap.set("n", "<leader>Tt", ":ToggleTerm<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>Tr", ":ToggleTerm direction=tab<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>Tf", ":ToggleTerm direction=float<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>Th", ":ToggleTerm direction=horizontal<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>Tv", ":ToggleTerm direction=vertical<cr>", { noremap = true })
+
 -- Execute Python file
 vim.keymap.set(
   "n",
