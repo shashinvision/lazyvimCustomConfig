@@ -35,7 +35,7 @@ Some of the notable plugins configured:
 
 - [Neovim 0.9+](https://neovim.io/)
 - Git
-- `ripgrep`, `fd`, and other common CLI tools
+- `LazyGit`, `ripgrep`, `fd`, and other common CLI tools
 
 ### Installation
 
