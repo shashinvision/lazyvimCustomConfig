@@ -39,17 +39,16 @@ vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 -- Git Messenger
 vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
 
--- Run Files
-vim.keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
-
 -- ToggleTerm
-vim.keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true })
+vim.keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })
 vim.keymap.set("n", "<leader>Tt", ":ToggleTerm<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Tr", ":ToggleTerm direction=tab<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Tf", ":ToggleTerm direction=float<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Th", ":ToggleTerm direction=horizontal<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Tv", ":ToggleTerm direction=vertical<cr>", { noremap = true })
 
+-- Run Files
+vim.keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
 -- Execute Python file
 vim.keymap.set(
   "n",
@@ -64,7 +63,6 @@ vim.keymap.set(
   ":w | :TermExec cmd='java \"%\"' size=50 direction=tab go_back=0<CR>",
   { noremap = true, desc = "Run Java File" }
 )
-
 -- Execute C++ Files
 vim.keymap.set(
   "n",
