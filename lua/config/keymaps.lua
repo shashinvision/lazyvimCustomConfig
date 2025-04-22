@@ -11,14 +11,6 @@ vim.keymap.set("n", "<leader>[", "<S-$>%", { noremap = true, desc = "Move to end
 -- select all
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true }) --" Para seleccionar todo con Control + A
 
--- UndoTree sirve para ver un listado en forma de arbol de los cambios en un archivo, es como un versionamiento a tiempo real
-vim.keymap.set("n", "<leader>U", "Undotree", { noremap = true, desc = "Undotree" })
-vim.keymap.set("n", "<leader>Ut", ":UndotreeToggle<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>Uf", ":UndotreeFocus<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>Uh", ":UndotreeHide<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>Up", ":UndotreePersistUndo<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>Us", ":UndotreeShow<CR>", { noremap = true })
-
 -- for Vim-Bookmarks
 vim.keymap.set("n", "<leader>B", "Vim-Bookmarks/Bracey", { noremap = true })
 vim.keymap.set("n", "<leader>Bm", "<Plug>BookmarkToggle", { noremap = true })
@@ -38,6 +30,16 @@ vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 
 -- Git Messenger
 vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
+
+-- Refactor
+vim.keymap.set("x", "<leader>r", "Refactor")
+vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
+vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
+vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
 -- ToggleTerm
 vim.keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })

@@ -7,3 +7,5 @@ local set = vim.opt -- Generals options (Windows/Files)
 set.colorcolumn = "80"
 set.wrap = true -- line wrap
 set.termguicolors = true
+
+-- vim.g.snacks_animate = false
