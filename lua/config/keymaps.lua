@@ -28,6 +28,12 @@ vim.keymap.set("n", "<leader>Bg", "<Plug>BookmarkMoveToLine", { noremap = true }
 vim.keymap.set("n", "<leader>Bs", ":Bracey<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 
+-- Markdown Preview
+vim.keymap.set("n", "<leader>m", "MarkdownPreview", { noremap = true })
+vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>mt", ":MarkdownPreviewToggle<cr>", { noremap = true })
+
 -- Git Messenger
 vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
 
