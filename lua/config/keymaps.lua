@@ -44,11 +44,26 @@ vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
 -- ToggleTerm
 vim.keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })
-vim.keymap.set("n", "<leader>Tt", ":ToggleTerm<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>Tr", ":ToggleTerm direction=tab<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>Tf", ":ToggleTerm direction=float<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>Th", ":ToggleTerm direction=horizontal<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>Tv", ":ToggleTerm direction=vertical<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>Tt", ":ToggleTerm<cr>", { noremap = true, desc = "Toggle Terminal (default)" })
+vim.keymap.set("n", "<leader>Tr", ":ToggleTerm direction=tab<cr>", { noremap = true, desc = "Toggle Terminal (tab)" })
+vim.keymap.set(
+  "n",
+  "<leader>Tf",
+  ":ToggleTerm direction=float<cr>",
+  { noremap = true, desc = "Toggle Terminal (float)" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>Th",
+  ":ToggleTerm direction=horizontal<cr>",
+  { noremap = true, desc = "Toggle Terminal (horizontal)" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>Tv",
+  ":ToggleTerm direction=vertical<cr>",
+  { noremap = true, desc = "Toggle Terminal (vertical)" }
+)
 
 -- Run Files
 vim.keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
