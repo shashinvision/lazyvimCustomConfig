@@ -33,6 +33,7 @@ vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
 
 -- Refactor
 vim.keymap.set("x", "<leader>r", "Refactor")
+vim.keymap.set("n", "<leader>r", "Refactor")
 vim.keymap.set("x", "<leader>re", ":Refactor extract ")
 vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
 vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
