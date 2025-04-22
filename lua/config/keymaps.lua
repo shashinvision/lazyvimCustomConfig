@@ -38,3 +38,35 @@ vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 
 -- Git Messenger
 vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
+
+-- Run Files
+vim.keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
+
+-- Execute Python file
+vim.keymap.set(
+  "n",
+  "<leader>jp",
+  ":w | :TermExec cmd='python3 \"%\"' size=50 direction=tab go_back=0<CR>",
+  { noremap = true, desc = "Run Python File" }
+)
+-- Execute Java file
+vim.keymap.set(
+  "n",
+  "<leader>jj",
+  ":w | :TermExec cmd='java \"%\"' size=50 direction=tab go_back=0<CR>",
+  { noremap = true, desc = "Run Java File" }
+)
+
+-- Execute C++ Files
+vim.keymap.set(
+  "n",
+  "<leader>jr",
+  ":w | :TermExec cmd='cr \"%\"' size=50 direction=tab go_back=0<CR>",
+  { noremap = true, desc = "Compile and Run C++ File" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>jd",
+  ":w | :TermExec cmd='cr \"%\" -d' size=50 direction=tab go_back=0<CR>",
+  { noremap = true, desc = "Compile and Run C++ File with Debug" }
+)
