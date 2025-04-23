@@ -8,6 +8,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>[", "<S-$>%", { noremap = true, desc = "Move to end {([])}" }) -- Te lleva al final o el principio de llave relacionada {}[]()
 
+-- Find with hidden files
 vim.keymap.set("n", "<leader><leader>", function()
   require("telescope.builtin").find_files({ hidden = true })
 end, { desc = "Buscar archivos (incluye ocultos)" })
