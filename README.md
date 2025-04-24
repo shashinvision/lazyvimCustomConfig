@@ -39,8 +39,25 @@ Some of the notable plugins configured:
 
 ### Installation
 
+- Powered by [LazyVim.com](https://www.lazyvim.org/installation)
+
+```bash
+# required
+mv ~/.config/nvim{,.bak}
+
+# optional but recommended
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+```
+
 ```bash
 git clone https://github.com/shashinvision/lazyvimCustomConfig.git ~/.config/nvim
 nvim
+```
 
+- If you wanna use you own repo based on this project, you can use the following command:
+
+```bash
+rm -rf ~/.config/nvim/.git
 ```
