@@ -1,53 +1,55 @@
-# 💤 My LazyVim Configuration
+#### Click to [English version](./README_EN.md)
 
-This is my custom [LazyVim](https://github.com/LazyVim/LazyVim) setup designed to boost productivity and provide a delightful development experience with modern Neovim.
+# 💤 Mi Configuración LazyVim
 
-If you wanna learn more about Vim/NeoVIM, you can follow this spanish free course about [Vim y NeoVim Fácil](https://youtube.com/playlist?list=PLt8PjPook45ZemtwXONrL5mrN-NTd71Lo&si=CKZKMrOKoWXqQ2Tw) for the community.
+Esta es mi configuración personalizada de [LazyVim](https://github.com/LazyVim/LazyVim) diseñada para aumentar la productividad y proporcionar una experiencia de desarrollo agradable con Neovim moderno.
 
-## 📁 Directory Structure
+Si quieres aprender más sobre Vim/NeoVIM, puedes seguir este curso gratuito en español sobre [Vim y NeoVim Fácil](https://youtube.com/playlist?list=PLt8PjPook45ZemtwXONrL5mrN-NTd71Lo&si=CKZKMrOKoWXqQ2Tw) para la comunidad.
 
-Here's a quick breakdown of the structure:
+## 📁 Estructura de Directorios
 
-![Directory Structure](./assets/dir.jpg)
+Aquí tienes un desglose rápido de la estructura:
+
+![Estructura de Directorios](./assets/dir.jpg)
 
 ## 🔌 Plugins
 
-Some of the notable plugins configured:
+Algunos de los plugins notables configurados:
 
-- **cmp.lua** – Autocompletion (likely using `nvim-cmp`)
-- **codeium.lua / copilot.lua** – AI code assistants
-- **colorscheme.lua** – Theme configuration
-- **toggleterm.lua** – Integrated terminal management
-- **treesitter.lua** – Syntax parsing and highlighting
-- **refactoring.lua** – Refactoring tools
-- **vim-visual-multi.lua** – Multi-cursor support
+- **cmp.lua** – Autocompletado (probablemente usando `nvim-cmp`)
+- **codeium.lua / copilot.lua** – Asistentes de código impulsados por IA
+- **colorscheme.lua** – Configuración de tema
+- **toggleterm.lua** – Gestión integrada del terminal
+- **treesitter.lua** – Análisis y resaltado de sintaxis
+- **refactoring.lua** – Herramientas de refactorización
+- **vim-visual-multi.lua** – Soporte para múltiples punteros visuales
 
-## 🛠 Features
+## 🛠 Características
 
-- Custom keymaps for productivity
-- AI-powered code suggestions
-- Code formatting with `stylua`
-- Built-in terminal and refactoring utilities
-- Snippet support (see `snack.lua`)
-- Visual multi-cursor editing
+- Mapas de teclado personalizados para la productividad
+- Sugerencias de código impulsadas por IA
+- Formateo de código con `stylua`
+- Terminal integrado y herramientas de refactorización
+- Soporte para fragmentos de código (consulta `snack.lua`)
+- Edición con múltiples punteros visuales
 
-## 🚀 Getting Started
+## 🚀 Comienzo
 
-### Prerequisites
+### Requisitos Previos
 
 - [Neovim 0.9+](https://neovim.io/)
 - Git
-- `LazyGit`, `ripgrep`, `fd`, and other common CLI tools
+- `LazyGit`, `ripgrep`, `fd`, y otras herramientas CLI comunes
 
-### Installation
+### Instalación
 
-- Powered by [LazyVim.com](https://www.lazyvim.org/installation)
+- Alimentado por [LazyVim.com](https://www.lazyvim.org/installation)
 
 ```bash
-# required
+# requerido
 mv ~/.config/nvim{,.bak}
 
-# optional but recommended
+# opcional pero recomendado
 mv ~/.local/share/nvim{,.bak}
 mv ~/.local/state/nvim{,.bak}
 mv ~/.cache/nvim{,.bak}
@@ -58,7 +60,7 @@ git clone https://github.com/shashinvision/lazyvimCustomConfig.git ~/.config/nvi
 nvim
 ```
 
-- If you wanna use you own repo based on this project, you can use the following command:
+- Si quieres usar tu propio repositorio basado en este proyecto, puedes usar el siguiente comando:
 
 ```bash
 rm -rf ~/.config/nvim/.git
