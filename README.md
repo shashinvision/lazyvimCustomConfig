@@ -2,6 +2,8 @@
 
 This is my custom [LazyVim](https://github.com/LazyVim/LazyVim) setup designed to boost productivity and provide a delightful development experience with modern Neovim.
 
+If you wanna learn more about Vim/NeoVIM, you can follow this spanish free course about [Vim y NeoVim Fácil](https://youtube.com/playlist?list=PLt8PjPook45ZemtwXONrL5mrN-NTd71Lo&si=CKZKMrOKoWXqQ2Tw) for the community.
+
 ## 📁 Directory Structure
 
 Here's a quick breakdown of the structure:
