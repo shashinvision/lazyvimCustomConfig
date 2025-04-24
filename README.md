@@ -43,7 +43,7 @@ Algunos de los plugins notables configurados:
 
 ### Instalación
 
-- Alimentado por [LazyVim.com](https://www.lazyvim.org/installation)
+- Proporcionado por [LazyVim.com](https://www.lazyvim.org/installation)
 
 ```bash
 # requerido
