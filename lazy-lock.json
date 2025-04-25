@@ -50,7 +50,7 @@
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "refactoring.nvim": { "branch": "master", "commit": "2be7ea3f10b7e59658f5abf6dffc50b5d61964d6" },
-  "render-markdown.nvim": { "branch": "main", "commit": "6531aa7f615926de1962102d90fff69665b672d7" },
+  "render-markdown.nvim": { "branch": "main", "commit": "6910fe12a9634be5ce4e19aff4d3b45abf3f0dd3" },
   "smartcat.nvim": { "branch": "main", "commit": "8a9572d2e32c0732671d2ad4c9eaad12ec2b4ee1" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "telescope.nvim": { "branch": "master", "commit": "a4ed82509cecc56df1c7138920a1aeaf246c0ac5" },
