@@ -40,6 +40,7 @@ Algunos de los plugins notables configurados:
 - [Neovim 0.9+](https://neovim.io/)
 - Git
 - `LazyGit`, `ripgrep`, `fd`, y otras herramientas CLI comunes
+- Para autenticarte con copilot en el modo comando escribe :copilot auth
 
 ### Instalación
 
