@@ -65,3 +65,19 @@ nvim
 ```bash
 rm -rf ~/.config/nvim/.git
 ```
+
+## Warning just if on Linux or mac show errors with C# omnisharp on NeoVim/LazyVim
+```bash
+sudo apt update
+sudo apt install mono-complete
+```
+Or on Mac
+```bash
+brew install mono
+```
+```bash
+# Download the latest version of omnisharp-roslyn
+git clone https://github.com/OmniSharp/omnisharp-roslyn.git
+cd omnisharp-roslyn
+./build.sh
+```
