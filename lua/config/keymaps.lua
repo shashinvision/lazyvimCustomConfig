@@ -105,3 +105,42 @@ vim.keymap.set(
   ":w | :TermExec cmd='cr \"%\" -d' size=50 direction=tab go_back=0<CR>",
   { noremap = true, desc = "Compile and Run C++ File with Debug" }
 )
+
+vim.keymap.set("n", "<leader>/", function()
+  local input = vim.fn.input("¿Incluir todas las rutas y archivos ocultos? (s/N): ")
+  local include = input:lower() == "s"
+
+  -- Configuración base que respeta tu telescope.lua
+  local opts = {
+    prompt_title = include and "Búsqueda (INCLUYENDO TODO)" or "Búsqueda (excluyendo ocultos)",
+    file_ignore_patterns = include and {} or { -- Anula los patrones de ignorar si include=true
+      "^node_modules/",
+      "^%.git/",
+      "^%.github/",
+      "^%.vscode/",
+      "^%.angular/",
+      "^%.sonarqube/",
+      "^%.scannerwork/",
+      "^dist/",
+    },
+  }
+
+  -- Añadimos argumentos especiales para ripgrep cuando include=true
+  if include then
+    opts.vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--no-ignore",
+      "--hidden",
+      "--no-ignore-parent",
+      "--no-ignore-vcs",
+    }
+  end
+
+  require("telescope.builtin").live_grep(opts)
+end, { desc = "🔍Buscar texto (s=incluye Todo y ocultos)", noremap = true, silent = true })

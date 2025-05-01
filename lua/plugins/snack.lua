@@ -3,7 +3,7 @@ return {
   opts = {
     picker = {
       hidden = true, -- for hidden files
-      ignored = false, -- for .gitignore files
+      ignored = true, -- for .gitignore files
     },
     dashboard = {
       preset = {
