@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/plugins/copilot.lua
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
@@ -12,6 +11,6 @@ return {
   },
   config = function(_, opts)
     require("copilot").setup(opts)
-    require("copilot_cmp").setup() -- This will now work
+    require("copilot_cmp").setup()
   end,
 }
