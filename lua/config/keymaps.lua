@@ -2,76 +2,76 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Move lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- set leader key to space
+vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>[", "<S-$>%", { noremap = true, desc = "Move to end {([])}" }) -- Te lleva al final o el principio de llave relacionada {}[]()
+local keymap = vim.keymap -- for conciseness
+
+-- Move lines
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+keymap.set("n", "<leader>[", "<S-$>%", { noremap = true, desc = "Move to end {([])}" }) -- Te lleva al final o el principio de llave relacionada {}[]()
 
 -- Find with hidden files
-vim.keymap.set("n", "<leader><leader>", function()
+keymap.set("n", "<leader><leader>", function()
   require("telescope.builtin").find_files({ hidden = true })
 end, { desc = "Buscar archivos (incluye ocultos)" })
 
 -- select all
-vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true }) --" Para seleccionar todo con Control + A
-vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
-vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
+keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true }) --" Para seleccionar todo con Control + A
+keymap.set("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
+keymap.set("v", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
 
 -- for Vim-Bookmarks
-vim.keymap.set("n", "<leader>B", "Vim-Bookmarks/Bracey", { noremap = true })
-vim.keymap.set("n", "<leader>Bm", "<Plug>BookmarkToggle", { noremap = true })
-vim.keymap.set("n", "<leader>Bi", "<Plug>BookmarkAnnotate", { noremap = true })
-vim.keymap.set("n", "<leader>Ba", "<Plug>BookmarkShowAll", { noremap = true })
-vim.keymap.set("n", "<leader>Bn", "<Plug>BookmarkNext", { noremap = true })
-vim.keymap.set("n", "<leader>Bp", "<Plug>BookmarkPrev", { noremap = true })
-vim.keymap.set("n", "<leader>Bc", "<Plug>BookmarkClear", { noremap = true })
-vim.keymap.set("n", "<leader>Bx", "<Plug>BookmarkClearAll", { noremap = true })
-vim.keymap.set("n", "<leader>Bk", "<Plug>BookmarkMoveUp", { noremap = true })
-vim.keymap.set("n", "<leader>Bj", "<Plug>BookmarkMoveDown", { noremap = true })
-vim.keymap.set("n", "<leader>Bg", "<Plug>BookmarkMoveToLine", { noremap = true })
+keymap.set("n", "<leader>B", "Vim-Bookmarks/Bracey", { noremap = true })
+keymap.set("n", "<leader>Bm", "<Plug>BookmarkToggle", { noremap = true })
+keymap.set("n", "<leader>Bi", "<Plug>BookmarkAnnotate", { noremap = true })
+keymap.set("n", "<leader>Ba", "<Plug>BookmarkShowAll", { noremap = true })
+keymap.set("n", "<leader>Bn", "<Plug>BookmarkNext", { noremap = true })
+keymap.set("n", "<leader>Bp", "<Plug>BookmarkPrev", { noremap = true })
+keymap.set("n", "<leader>Bc", "<Plug>BookmarkClear", { noremap = true })
+keymap.set("n", "<leader>Bx", "<Plug>BookmarkClearAll", { noremap = true })
+keymap.set("n", "<leader>Bk", "<Plug>BookmarkMoveUp", { noremap = true })
+keymap.set("n", "<leader>Bj", "<Plug>BookmarkMoveDown", { noremap = true })
+keymap.set("n", "<leader>Bg", "<Plug>BookmarkMoveToLine", { noremap = true })
 
 -- Live Serve
-vim.keymap.set("n", "<leader>Bs", ":Bracey<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
+keymap.set("n", "<leader>Bs", ":Bracey<cr>", { noremap = true })
+keymap.set("n", "<leader>Bp", ":BraceyStop<cr>", { noremap = true })
 
 -- Markdown Preview
-vim.keymap.set("n", "<leader>m", "MarkdownPreview", { noremap = true })
-vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>mt", ":MarkdownPreviewToggle<cr>", { noremap = true })
+keymap.set("n", "<leader>m", "MarkdownPreview", { noremap = true })
+keymap.set("n", "<leader>mp", ":MarkdownPreview<cr>", { noremap = true })
+keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<cr>", { noremap = true })
+keymap.set("n", "<leader>mt", ":MarkdownPreviewToggle<cr>", { noremap = true })
 
 -- Git Messenger
-vim.keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
+keymap.set("n", "<leader>gm", ":GitMessenger<cr>", { noremap = true })
 
 -- Refactor
-vim.keymap.set("x", "<leader>r", "Refactor")
-vim.keymap.set("n", "<leader>r", "Refactor")
-vim.keymap.set("x", "<leader>re", ":Refactor extract ")
-vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
-vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
-vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
-vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
-vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+keymap.set("x", "<leader>r", "Refactor")
+keymap.set("n", "<leader>r", "Refactor")
+keymap.set("x", "<leader>re", ":Refactor extract ")
+keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+keymap.set("n", "<leader>rI", ":Refactor inline_func")
+keymap.set("n", "<leader>rb", ":Refactor extract_block")
+keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
 -- ToggleTerm
-vim.keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })
-vim.keymap.set("n", "<leader>Tt", ":ToggleTerm<cr>", { noremap = true, desc = "Toggle Terminal (default)" })
-vim.keymap.set("n", "<leader>Tr", ":ToggleTerm direction=tab<cr>", { noremap = true, desc = "Toggle Terminal (tab)" })
-vim.keymap.set(
-  "n",
-  "<leader>Tf",
-  ":ToggleTerm direction=float<cr>",
-  { noremap = true, desc = "Toggle Terminal (float)" }
-)
-vim.keymap.set(
+keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })
+keymap.set("n", "<leader>Tt", ":ToggleTerm<cr>", { noremap = true, desc = "Toggle Terminal (default)" })
+keymap.set("n", "<leader>Tr", ":ToggleTerm direction=tab<cr>", { noremap = true, desc = "Toggle Terminal (tab)" })
+keymap.set("n", "<leader>Tf", ":ToggleTerm direction=float<cr>", { noremap = true, desc = "Toggle Terminal (float)" })
+keymap.set(
   "n",
   "<leader>Th",
   ":ToggleTerm direction=horizontal<cr>",
   { noremap = true, desc = "Toggle Terminal (horizontal)" }
 )
-vim.keymap.set(
+keymap.set(
   "n",
   "<leader>Tv",
   ":ToggleTerm direction=vertical<cr>",
@@ -79,36 +79,36 @@ vim.keymap.set(
 )
 
 -- Run Files
-vim.keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
+keymap.set("n", "<leader>j", "Execute Files", { noremap = true })
 -- Execute Python file
-vim.keymap.set(
+keymap.set(
   "n",
   "<leader>jp",
   ":w | :TermExec cmd='python3 \"%\"' size=50 direction=tab go_back=0<CR>",
   { noremap = true, desc = "Run Python File" }
 )
 -- Execute Java file
-vim.keymap.set(
+keymap.set(
   "n",
   "<leader>jj",
   ":w | :TermExec cmd='java \"%\"' size=50 direction=tab go_back=0<CR>",
   { noremap = true, desc = "Run Java File" }
 )
 -- Execute C++ Files
-vim.keymap.set(
+keymap.set(
   "n",
   "<leader>jr",
   ":w | :TermExec cmd='cr \"%\"' size=50 direction=tab go_back=0<CR>",
   { noremap = true, desc = "Compile and Run C++ File" }
 )
-vim.keymap.set(
+keymap.set(
   "n",
   "<leader>jd",
   ":w | :TermExec cmd='cr \"%\" -d' size=50 direction=tab go_back=0<CR>",
   { noremap = true, desc = "Compile and Run C++ File with Debug" }
 )
 
-vim.keymap.set("n", "<leader>/", function()
+keymap.set("n", "<leader>/", function()
   local input = vim.fn.input("¿Incluir todas las rutas y archivos ocultos? (s/N): ")
   local include = input:lower() == "s"
 

@@ -11,6 +11,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "zbirenbaum/copilot-cmp",
       "Exafunction/codeium.nvim",
+      "hrsh7th/cmp-cmdline",
 
       -- Mejoras visuales
       "onsails/lspkind.nvim",
@@ -145,6 +146,34 @@ return {
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
         }),
       }
+
+      vim.schedule(function()
+        -- Para búsqueda ("/")
+        cmp.setup.cmdline("/", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = "buffer" },
+          },
+        })
+
+        -- Para búsqueda inversa ("?")
+        cmp.setup.cmdline("?", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = "buffer" },
+          },
+        })
+
+        -- Para línea de comandos (":")
+        cmp.setup.cmdline(":", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({
+            { name = "path" },
+          }, {
+            { name = "cmdline" },
+          }),
+        })
+      end)
     end,
   },
 }
