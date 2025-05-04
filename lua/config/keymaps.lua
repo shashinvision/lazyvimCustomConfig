@@ -14,7 +14,9 @@ vim.keymap.set("n", "<leader><leader>", function()
 end, { desc = "Buscar archivos (incluye ocultos)" })
 
 -- select all
-vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true }) --" Para seleccionar todo con Control + A
+vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true }) --" Para seleccionar todo con Control + A
+vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
 
 -- for Vim-Bookmarks
 vim.keymap.set("n", "<leader>B", "Vim-Bookmarks/Bracey", { noremap = true })
