@@ -12,6 +12,7 @@ return {
       "zbirenbaum/copilot-cmp",
       "Exafunction/codeium.nvim",
       "hrsh7th/cmp-cmdline",
+      "petertriho/cmp-git",
 
       -- Mejoras visuales
       "onsails/lspkind.nvim",
@@ -173,6 +174,15 @@ return {
             { name = "cmdline" },
           }),
         })
+
+        cmp.setup.filetype("gitcommit", {
+          sources = cmp.config.sources({
+            { name = "git" },
+          }, {
+            { name = "buffer" },
+          }),
+        })
+        require("cmp_git").setup()
       end)
     end,
   },
