@@ -49,3 +49,5 @@ set.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 set.swapfile = false
+
+vim.lsp.handlers["textDocument/inlayHint"] = function() end
