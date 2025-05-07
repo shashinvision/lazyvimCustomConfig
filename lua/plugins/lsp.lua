@@ -14,6 +14,23 @@ return {
       opts.servers.tsserver = opts.servers.tsserver or {}
       opts.servers.eslint = opts.servers.eslint or {}
 
+      opts.ensure_installed = {
+        "eslint",
+        "omnisharp",
+        "emmet_ls",
+        "lua_ls",
+        "ts_ls",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "svelte",
+        "angularls",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "prismals",
+        "pyright",
+      }
       opts.servers.emmet_ls = {
         filetypes = {
           "html",

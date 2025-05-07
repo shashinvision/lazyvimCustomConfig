@@ -39,7 +39,7 @@ Algunos de los plugins notables configurados:
 
 - [Neovim 0.9+](https://neovim.io/)
 - Git
-- `LazyGit`, `ripgrep`, `fd`, y otras herramientas CLI comunes
+- `LazyGit`, `ripgrep`, `fd` y otras herramientas CLI comunes
 - Para autenticarte con copilot en el modo comando escribe :copilot auth
 
 ### Instalación
@@ -68,14 +68,25 @@ rm -rf ~/.config/nvim/.git
 ```
 
 ## Alerta en el caso de usar Linux o Mac y veas estos errores para C# omnisharp on NeoVim/LazyVim
+
 ```bash
 sudo apt update
 sudo apt install mono-complete
 ```
+
 Or on Mac
+
 ```bash
 brew install mono
+
 ```
+
+- C#
+
+```bash
+dotnet tool install -g dotnet-omnisharp
+```
+
 ```bash
 # Download the latest version of omnisharp-roslyn
 git clone https://github.com/OmniSharp/omnisharp-roslyn.git

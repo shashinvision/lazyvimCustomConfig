@@ -1,7 +1,7 @@
 return {
   "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    { "williamboman/mason-lspconfig.nvim", version = "v1.21.0" }, -- Older stable version
   },
   config = function()
     -- import mason
