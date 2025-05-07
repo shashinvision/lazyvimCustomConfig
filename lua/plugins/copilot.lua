@@ -1,16 +1,20 @@
 return {
   "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  build = ":Copilot auth",
-  dependencies = {
-    "zbirenbaum/copilot-cmp",
-  },
-  opts = {
-    suggestion = { enabled = false },
-    panel = { enabled = false },
-  },
-  config = function(_, opts)
-    require("copilot").setup(opts)
-    require("copilot_cmp").setup()
+  optional = true,
+  opts = function()
+    require("copilot.api").status = require("copilot.status")
+    require("copilot.api").filetypes = {
+      filetypes = {
+        yaml = false,
+        markdown = false,
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        ["."] = false,
+      },
+    }
   end,
 }

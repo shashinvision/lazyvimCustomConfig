@@ -65,6 +65,28 @@ nvim
 
 ```bash
 rm -rf ~/.config/nvim/.git
+
+```
+
+- Mac errores in this Version
+  Edit this line
+
+```
+nvim ~/.local/share/nvim/lazy/LazyVim/lua/lazyvim/plugins/lsp/init.lua
+```
+
+Replace this
+
+```
+vim.lsp.inlay_hint.enable(buffer, true)
+```
+
+for this
+
+```
+if vim.lsp.inlay_hint and type(vim.lsp.inlay_hint.enable) == "function" then
+  vim.lsp.inlay_hint.enable(buffer, true)
+end
 ```
 
 ## Warning just if on Linux or mac show errors with C# omnisharp on NeoVim/LazyVim
