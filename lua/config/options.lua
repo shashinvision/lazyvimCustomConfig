@@ -51,4 +51,9 @@ set.splitbelow = true -- split horizontal window to the bottom
 set.swapfile = false
 
 -- set.textwidth = 120
-vim.lsp.inlay_hint.enable = false
+
+-- if type(vim.lsp.inlay_hint) ~= "table" then
+--   vim.lsp.inlay_hint = {
+--     enable = function(_, _) end,
+--   }
+-- end
