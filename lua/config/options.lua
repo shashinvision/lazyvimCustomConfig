@@ -49,3 +49,6 @@ set.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 set.swapfile = false
+
+-- set.textwidth = 120
+vim.lsp.inlay_hint.enable = false
