@@ -35,6 +35,12 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        "ruff_lsp",
+        "eslint",
+        "tailwindcss",
+        "emmet_language_server",
+        "jsonls",
+        "omnisharp",
       },
       automatic_installation = true,
     })

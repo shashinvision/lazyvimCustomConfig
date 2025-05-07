@@ -15,11 +15,7 @@ return {
       opts.servers.eslint = opts.servers.eslint or {}
 
       opts.ensure_installed = {
-        "eslint",
-        "omnisharp",
-        "emmet_ls",
-        "lua_ls",
-        "ts_ls",
+        "tsserver",
         "html",
         "cssls",
         "tailwindcss",
@@ -30,6 +26,12 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        "ruff_lsp",
+        "eslint",
+        "tailwindcss",
+        "emmet_language_server",
+        "jsonls",
+        "omnisharp",
       }
       opts.servers.emmet_ls = {
         filetypes = {
