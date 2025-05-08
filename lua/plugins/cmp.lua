@@ -39,6 +39,7 @@ return {
           { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
           { name = "copilot", group_index = 2 }, -- Prioridad media (IA)
+          { name = "avante", group_index = 2 }, -- Prioridad media (IA)
           { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
           { name = "buffer", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "path", keyword_length = 1 }, -- Bajo prioridad pero rápido
@@ -61,9 +62,11 @@ return {
             show_labelDetails = true,
             symbol_map = {
               Copilot = "",
+              Avante = "",
               Codeium = "",
             },
             menu = {
+              avante = "[Avante]", -- Nueva entrada para avante
               copilot = "[Copilot]",
               codeium = "[Codeium]",
               nvim_lsp = "[LSP]",
