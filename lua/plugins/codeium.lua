@@ -26,24 +26,8 @@ return {
       expr = true,
       desc = "Codeium Clear",
     },
-    {
-      "<C-]>",
-      mode = "i",
-      function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end,
-      expr = true,
-      desc = "Codeium Next",
-    },
-    {
-      "<C-[>",
-      mode = "i",
-      function()
-        return vim.fn["codeium#CycleCompletions"](-1)
-      end,
-      expr = true,
-      desc = "Codeium Prev",
-    },
+    -- { "<C-]>", mode = "i", function() return vim.fn['codeium#CycleCompletions'](1) end, expr = true, desc = "Codeium Next" },
+    -- { "<C-[>", mode = "i", function() return vim.fn['codeium#CycleCompletions'](-1) end, expr = true, desc = "Codeium Prev" },
   },
   config = function()
     require("codeium").setup({
