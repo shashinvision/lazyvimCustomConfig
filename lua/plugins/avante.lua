@@ -8,7 +8,7 @@ return {
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
       provider = "copilot", -- Recommend using Claude
       copilot = {
-        model = "copilot", -- o1-preview | o1-mini | claude-3.7-sonnet
+        model = "gpt-4o", -- o1-preview | o1-mini | claude-3.7-sonnet
       },
       cursor_applying_provider = "copilot", -- In this example, use Groq for applying, but you can also use any provider you want.
       auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
@@ -111,7 +111,11 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
