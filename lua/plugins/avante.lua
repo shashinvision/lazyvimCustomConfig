@@ -19,7 +19,7 @@ return {
         support_paste_from_clipboard = false,
         enable_cursor_planning_mode = true, -- enable cursor planning mode!
         override_timeoutlen = 2000, -- increase timeout to 2 seconds
-        auto_suggestions = true, -- Experimental stage
+        auto_suggestions = false, -- Experimental stage
       },
       -- File selector configuration
       --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
