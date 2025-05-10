@@ -27,6 +27,30 @@ return {
         end,
       },
 
+      -- Emmet integration
+      {
+        "mattn/emmet-vim",
+        init = function()
+          -- Set up Emmet only for HTML and CSS-like files
+          vim.g.user_emmet_mode = "inv" -- enable all functions in all modes
+          vim.g.user_emmet_leader_key = "<C-z>"
+          vim.g.user_emmet_settings = {
+            indent_blockelement = 1,
+            languages = {
+              html = {
+                extends = "css",
+              },
+              javascriptreact = {
+                extends = "jsx",
+              },
+              typescriptreact = {
+                extends = "jsx",
+              },
+            },
+          }
+        end,
+      },
+
       -- Mejoras visuales
       "onsails/lspkind.nvim",
     },
@@ -38,6 +62,7 @@ return {
         sources = {
           { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
+          { name = "emmet_vim", group_index = 1 }, -- Add Emmet as high priority source
           { name = "copilot", group_index = 2 }, -- Prioridad media (IA)
           { name = "avante", group_index = 2 }, -- Prioridad media (IA)
           { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
@@ -53,6 +78,14 @@ return {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-y>"] = cmp.mapping(function()
+            -- Emmet expand mapping
+            if vim.fn["emmet#expandAbbrIntelligent"](1) == 1 then
+              return "<C-y>"
+            else
+              return cmp.mapping.confirm({ select = true })()
+            end
+          end, { "i", "s" }),
         },
         formatting = {
           format = require("lspkind").cmp_format({
@@ -64,11 +97,13 @@ return {
               Copilot = "",
               Avante = "",
               Codeium = "",
+              emmet_vim = "", -- Emmet icon
             },
             menu = {
-              avante = "[Avante]", -- Nueva entrada para avante
+              avante = "[Avante]",
               copilot = "[Copilot]",
               codeium = "[Codeium]",
+              emmet_vim = "[Emmet]", -- Emmet menu entry
               nvim_lsp = "[LSP]",
               luasnip = "[Snip]",
               buffer = "[Buf]",
@@ -139,6 +174,14 @@ return {
       -- Configuración específica para gitcommit
       cmp.setup.filetype("gitcommit", {
         sources = cmp.config.sources({ { name = "git" } }, { { name = "buffer" } }),
+      })
+
+      -- Enable Emmet for specific filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "html", "css", "javascriptreact", "typescriptreact", "svelte", "vue" },
+        callback = function()
+          vim.cmd("EmmetInstall")
+        end,
       })
     end,
   },
