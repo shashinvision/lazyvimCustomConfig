@@ -64,7 +64,7 @@ return {
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
           { name = "emmet_vim", group_index = 1 }, -- Add Emmet as high priority source
           { name = "copilot", group_index = 2 }, -- Prioridad media (IA)
-          { name = "avante", group_index = 2 }, -- Prioridad media (IA)
+          -- { name = "avante", group_index = 2 }, -- Prioridad media (IA)
           { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
           { name = "buffer", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "path", keyword_length = 1 }, -- Bajo prioridad pero rápido
@@ -100,7 +100,7 @@ return {
               emmet_vim = "", -- Emmet icon
             },
             menu = {
-              avante = "[Avante]",
+              -- avante = "[Avante]",
               copilot = "[Copilot]",
               codeium = "[Codeium]",
               emmet_vim = "[Emmet]", -- Emmet menu entry
