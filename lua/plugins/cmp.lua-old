@@ -151,31 +151,6 @@ return {
         require("cmp_git").setup()
       end
 
-      -- Aplicar configuración principal
-      cmp.setup(opts)
-
-      -- Configuración para cmdline (organizada en una función)
-      local function setup_cmdline()
-        cmp.setup.cmdline("/", {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = { { name = "buffer" } },
-        })
-        cmp.setup.cmdline("?", {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = { { name = "buffer" } },
-        })
-        cmp.setup.cmdline(":", {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
-        })
-      end
-      setup_cmdline()
-
-      -- Configuración específica para gitcommit
-      cmp.setup.filetype("gitcommit", {
-        sources = cmp.config.sources({ { name = "git" } }, { { name = "buffer" } }),
-      })
-
       -- Enable Emmet for specific filetypes
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "html", "css", "javascriptreact", "typescriptreact", "svelte", "vue" },
