@@ -1,11 +1,5 @@
 return {
   {
-    "saghen/blink.compat",
-    version = "*",
-    lazy = true,
-    opts = {},
-  },
-  {
     "saghen/blink.cmp",
     dependencies = {
       "rafamadriz/friendly-snippets",
@@ -14,7 +8,8 @@ return {
       "zbirenbaum/copilot.lua",
       "Exafunction/windsurf.vim", -- Codeium
     },
-    version = "1.*",
+    version = "*", -- "1.*"
+    lazy = true,
     opts = {
 
       keymap = {
