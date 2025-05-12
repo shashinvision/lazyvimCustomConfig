@@ -11,6 +11,9 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Clean :%s/^M//g
+keymap.set("n", "<leader>cM", ":s/^M//g<CR>", { noremap = true, silent = true, desc = "Borrar los espacios en blanco" })
+
 keymap.set("n", "<leader>[", "<S-$>%", { noremap = true, desc = "Move to end {([])}" }) -- Te lleva al final o el principio de llave relacionada {}[]()
 
 -- Find with hidden files
