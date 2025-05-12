@@ -6,8 +6,8 @@ return {
   --   "zbirenbaum/copilot-cmp",
   -- },
   opts = {
-    suggestion = { enabled = false },
-    panel = { enabled = false },
+    suggestion = { enabled = true },
+    panel = { enabled = true },
   },
   config = function(_, opts)
     require("copilot").setup(opts)
