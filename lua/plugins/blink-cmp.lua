@@ -7,6 +7,7 @@ return {
       "ray-x/cmp-sql",
       "zbirenbaum/copilot.lua",
       "Exafunction/windsurf.vim", -- Codeium
+      "dcampos/nvim-emmet-completion", -- Add this dependency
     },
     version = "*", -- "1.*"
     lazy = true,
@@ -62,6 +63,26 @@ return {
             module = "blink.compat.source",
             score_offset = 5, -- Adjust as needed
             opts = {},
+          },
+          emmet = { -- Add this new provider
+            name = "emmet",
+            module = "blink.compat.source",
+            score_offset = 10, -- Adjust as needed
+            opts = {},
+            should_show_items = function()
+              return vim.tbl_contains({
+                "html",
+                "css",
+                "javascript",
+                "javascriptreact",
+                "typescriptreact",
+                "svelte",
+                "vue",
+                "blade",
+                "php",
+                "xml",
+              }, vim.o.filetype)
+            end,
           },
         },
       },
