@@ -7,7 +7,6 @@ return {
       "ray-x/cmp-sql",
       "zbirenbaum/copilot.lua",
       "Exafunction/windsurf.vim", -- Codeium
-      "dcampos/nvim-emmet-completion", -- Add this dependency
     },
     version = "*", -- "1.*"
     lazy = true,
@@ -32,7 +31,7 @@ return {
       signature = { enabled = true },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "copilot", "codeium" },
+        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "copilot", "codeium", "emmet" },
         providers = {
           emoji = {
             module = "blink-emoji",
@@ -67,7 +66,7 @@ return {
           emmet = { -- Add this new provider
             name = "emmet",
             module = "blink.compat.source",
-            score_offset = 10, -- Adjust as needed
+            score_offset = 3, -- Adjust as needed
             opts = {},
             should_show_items = function()
               return vim.tbl_contains({
