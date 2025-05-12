@@ -25,6 +25,8 @@ return {
       "dockerfile",
       "gitignore",
       "vimdoc",
+      "heex",
+      "elixir",
       "c",
       -- Add more as needed
     },
