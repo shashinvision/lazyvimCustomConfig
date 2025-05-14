@@ -31,7 +31,7 @@ return {
       signature = { enabled = true },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "copilot", "codeium", "emmet" },
+        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "copilot", "codeium" },
         providers = {
           emoji = {
             module = "blink-emoji",
@@ -62,26 +62,6 @@ return {
             module = "blink.compat.source",
             score_offset = 5, -- Adjust as needed
             opts = {},
-          },
-          emmet = { -- Add this new provider
-            name = "emmet",
-            module = "blink.compat.source",
-            score_offset = 3, -- Adjust as needed
-            opts = {},
-            should_show_items = function()
-              return vim.tbl_contains({
-                "html",
-                "css",
-                "javascript",
-                "javascriptreact",
-                "typescriptreact",
-                "svelte",
-                "vue",
-                "blade",
-                "php",
-                "xml",
-              }, vim.o.filetype)
-            end,
           },
         },
       },

@@ -29,7 +29,6 @@ return {
         "ruff_lsp",
         "eslint",
         "tailwindcss",
-        "emmet_language_server",
         "jsonls",
         "omnisharp",
       }
@@ -45,6 +44,17 @@ return {
           "blade",
           "php",
           "xml",
+          "htmldjango",
+          "heex",
+          "eruby",
+        },
+        init_options = {
+          html = {
+            options = {
+              -- Para forzar atributos con comillas
+              ["bem.enabled"] = true,
+            },
+          },
         },
       }
     end,
