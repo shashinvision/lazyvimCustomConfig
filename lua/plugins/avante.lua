@@ -39,10 +39,10 @@ return {
           prev = "[x",
         },
         suggestion = {
-          accept = "<M-l>",
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
+          accept = "<C-y>",
+          next = "<C-n>",
+          prev = "<C-p>",
+          dismiss = "<C-e>",
         },
         jump = {
           next = "]]",
