@@ -13,14 +13,13 @@ return {
     opts = {
 
       keymap = {
-        preset = "<Tab>", -- Use TAB as the preset trigger
+        preset = "enter",
         mappings = {
           ["<C-p>"] = "select_prev_item",
           ["<C-n>"] = "select_next_item",
           ["<C-Space>"] = "complete",
           ["<C-e>"] = "close",
-          ["<Tab>"] = "accept", -- Optionally, use Tab to accept
-          ["<S-Tab>"] = "select_prev_item", -- Shift+Tab for previous item
+          ["<C-CR>"] = "accept",
         },
       },
 
