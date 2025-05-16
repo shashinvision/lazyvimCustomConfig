@@ -57,6 +57,36 @@ return {
           },
         },
       }
+      opts.servers.tsserver = {
+        settings = {
+          completions = {
+            completeFunctionCalls = true,
+          },
+          javascript = {
+            target = "ESNext",
+            module = "ESNext",
+          },
+          typescript = {
+            target = "ESNext",
+            module = "ESNext",
+          },
+        },
+      }
+      opts.servers.eslint = {
+        settings = {
+          packageManager = "npm", -- o "yarn", "pnpm"
+          codeActionOnSave = {
+            enable = true,
+            mode = "all",
+          },
+        },
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      }
     end,
   },
 }

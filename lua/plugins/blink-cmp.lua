@@ -19,7 +19,7 @@ return {
           ["<C-n>"] = "select_next_item",
           ["<C-Space>"] = "complete",
           ["<C-e>"] = "close",
-          ["<C-CR>"] = "accept",
+          ["<CR>"] = "accept",
         },
       },
 
