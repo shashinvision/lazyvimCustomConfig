@@ -46,7 +46,7 @@ return {
 
       -- Comandos en modo normal
       { "<leader>aA", "<cmd>Codeium Auth<cr>", mode = "n", desc = "Codeium: Auth" },
-      { "<leader>AC", "<cmd>Codeium Chat<cr>", mode = "n", desc = "Codeium Chat" },
+      { "<leader>aC", "<cmd>Codeium Chat<cr>", mode = "n", desc = "Codeium Chat" },
     },
     config = function()
       require("codeium").setup({
