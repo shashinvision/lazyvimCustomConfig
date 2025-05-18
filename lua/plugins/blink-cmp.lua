@@ -5,7 +5,6 @@ return {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
       "ray-x/cmp-sql",
-      "zbirenbaum/copilot.lua",
       "Exafunction/windsurf.vim", -- Codeium
     },
     version = "*", -- "1.*"
@@ -31,7 +30,7 @@ return {
       signature = { enabled = true },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "copilot", "codeium" },
+        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "codeium" },
         providers = {
           emoji = {
             module = "blink-emoji",
@@ -50,12 +49,6 @@ return {
             should_show_items = function()
               return vim.tbl_contains({ "sql" }, vim.o.filetype)
             end,
-          },
-          copilot = {
-            name = "copilot",
-            module = "blink.compat.source",
-            score_offset = 5, -- Adjust as needed
-            opts = {},
           },
           codeium = {
             name = "codeium",

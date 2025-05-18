@@ -16,7 +16,7 @@ return {
     vim.g.codeium_enabled = true
   end,
   keys = {
-    { "<leader>ac", "<cmd>Codeium Chat<CR>", desc = "Codeium Chat" },
+    { "<leader>aC", "<cmd>Codeium Chat<CR>", desc = "Codeium Chat" },
     { "<leader>aA", "<cmd>Codeium Auth<CR>", desc = "Codeium Auth" },
     -- Add your Copilot-style navigation keymaps
     { "<C-n>", mode = "i", "<Cmd>call codeium#CycleCompletions(1)<CR>", desc = "Next suggestion" },
