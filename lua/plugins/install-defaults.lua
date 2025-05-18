@@ -4,7 +4,7 @@ return {
   "rhysd/git-messenger.vim",
   "tpope/vim-commentary",
   "MattesGroeger/vim-bookmarks",
-  "kylechui/nvim-surround",
+  -- "kylechui/nvim-surround",
   "nvim-treesitter/nvim-treesitter",
   "machakann/vim-sandwich",
 }

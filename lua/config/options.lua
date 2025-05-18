@@ -20,7 +20,7 @@ set.expandtab = true -- expand tab to spaces
 set.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
-set.wrap = false -- disable line wrapping
+set.wrap = true
 
 -- search settings
 set.ignorecase = true -- ignore case when searching
