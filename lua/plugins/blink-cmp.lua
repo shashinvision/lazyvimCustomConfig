@@ -23,7 +23,7 @@ return {
       },
 
       appearance = {
-        nerd_font_variant = "normal",
+        nerd_font_variant = "normal", -- "normal", "mono"
       },
 
       completion = { documentation = { auto_show = true } },
