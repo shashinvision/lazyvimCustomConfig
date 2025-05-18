@@ -21,7 +21,7 @@ return {
     -- Add your Copilot-style navigation keymaps
     { "<C-n>", mode = "i", "<Cmd>call codeium#CycleCompletions(1)<CR>", desc = "Next suggestion" },
     { "<C-p>", mode = "i", "<Cmd>call codeium#CycleCompletions(-1)<CR>", desc = "Previous suggestion" },
-    { "<C-CR>", mode = "i", "<Cmd>call codeium#Accept()<CR>", desc = "Accept suggestion" },
+    { "<CR>", mode = "i", "<Cmd>call codeium#Accept()<CR>", desc = "Accept suggestion" },
     { "<C-e>", mode = "i", "<Cmd>call codeium#Clear()<CR>", desc = "Dismiss suggestion" },
   },
   config = function()
