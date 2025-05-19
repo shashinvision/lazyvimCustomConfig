@@ -50,7 +50,38 @@ return {
     },
     config = function()
       require("codeium").setup({
-        enable_chat = true, -- Habilita el chat si lo usas
+        enable_chat = true,
+        -- Custom prompt configuration
+        tools = {
+          language_server = {
+            -- Custom system prompt for completions
+            completion = {
+              model = "default",
+              system_prompt = [[
+              You are an expert programmer. Your task is to provide concise and efficient code
+              completions. Follow these guidelines:
+              1. Respect the existing coding style
+              2. Prioritize modern patterns and best practices
+              3. Focus on security and performance
+              4. Include helpful comments for complex logic
+              5. Complete any missing error handling when appropriate
+            ]],
+            },
+          },
+          -- Chat configuration with custom prompt
+          chat = {
+            model = "default",
+            system_prompt = [[
+            You are a helpful coding assistant. When answering questions:
+            - Provide clear, well-structured explanations
+            - Include code examples when appropriate
+            - Focus on practical solutions
+            - Consider edge cases and error handling
+            - Explain your reasoning for complex decisions
+            - When suggesting refactors, explain the benefits
+          ]],
+          },
+        },
       })
     end,
   },
