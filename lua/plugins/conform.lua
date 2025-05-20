@@ -17,17 +17,9 @@ return {
       css = { "prettier" },
       scss = { "prettier" },
     },
+
     formatters = {
-      prettier = {
-        prepend_args = {
-          "--parser",
-          "html", -- For HTML/Angular
-          "--parser",
-          "vue", -- For Vue files
-          "--parser",
-          "typescript", -- For TS files
-        },
-      },
+      prettier = {},
     },
   },
 }
