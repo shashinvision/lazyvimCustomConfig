@@ -62,6 +62,33 @@ return {
         },
       }
 
+      -- FIX Angular error
+      local ok, mason_registry = pcall(require, "mason-registry")
+      if not ok then
+        vim.notify("mason-registry could not be loaded")
+        return
+      end
+
+      local angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
+
+      local cmd = {
+        angularls_path .. "/node_modules/@angular/language-server/bin/ngserver",
+        "--stdio",
+        "--tsProbeLocations",
+        angularls_path .. "/node_modules",
+        "--ngProbeLocations",
+        angularls_path .. "/node_modules/@angular/language-server",
+      }
+
+      opts.servers.angularls = {
+        cmd = cmd,
+        on_new_config = function(new_config, new_root_dir)
+          new_config.cmd = cmd
+        end,
+        root_dir = require("lspconfig.util").root_pattern("angular.json", "package.json", ".git"),
+      }
+      -- END FIX Angular error
+
       opts.servers.eslint = {
         settings = {
           packageManager = "npm",
@@ -181,7 +208,6 @@ return {
       -- Viene en la configuracion por defecto y esta deprecado
       -- De esta manera lo desactivamos
       opts.servers.ruff_lsp = nil
-      opts.servers.angularls = nil
 
       for server, server_opts in pairs(opts.servers or {}) do
         local config_module = lspconfig[server]
