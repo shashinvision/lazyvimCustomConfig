@@ -181,6 +181,7 @@ return {
       -- Viene en la configuracion por defecto y esta deprecado
       -- De esta manera lo desactivamos
       opts.servers.ruff_lsp = nil
+      opts.servers.angularls = nil
 
       for server, server_opts in pairs(opts.servers or {}) do
         local config_module = lspconfig[server]
