@@ -10,7 +10,7 @@ return {
         "^.scannerwork/",
         "^%.angular/",
         "^%.vscode/",
-        "^%.git/", -- this Pattern is used to ignore the .git directory and not the .gitignore
+        "^%.git/", -- ignore .git folder
         "^%.github/",
       },
     },
