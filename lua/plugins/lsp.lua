@@ -23,7 +23,6 @@ return {
           return require("lspconfig.util").root_pattern(".git")(...)
         end,
       }
-
       opts.servers.tsserver = {
         root_dir = function(...)
           return require("lspconfig.util").root_pattern(".git")(...)
@@ -60,6 +59,26 @@ return {
             module = "ESNext",
           },
         },
+      }
+
+      opts.servers.volar = {
+        filetypes = { "vue", "typescript", "javascript" },
+        root_dir = require("lspconfig.util").root_pattern("package.json", "vue.config.js", ".git"),
+        settings = {
+          vue = {
+            inlayHints = {
+              enumMemberValues = true,
+              functionLikeReturnTypes = true,
+              functionParameters = true,
+              propertyDeclarationTypes = true,
+              variableTypes = true,
+            },
+          },
+        },
+      }
+
+      opts.servers.svelte = {
+        root_dir = require("lspconfig.util").root_pattern("package.json", ".git"),
       }
 
       -- FIX Angular error
