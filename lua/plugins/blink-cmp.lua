@@ -11,6 +11,17 @@ return {
     lazy = true,
     opts = {
 
+      completion = {
+        menu = {
+          winblend = vim.o.pumblend,
+        },
+      },
+      signature = {
+        window = {
+          winblend = vim.o.pumblend,
+        },
+      },
+
       keymap = {
         preset = "enter",
         mappings = {
@@ -25,9 +36,6 @@ return {
       appearance = {
         nerd_font_variant = "normal", -- "normal", "mono"
       },
-
-      completion = { documentation = { auto_show = true } },
-      signature = { enabled = true },
 
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "codeium" },
