@@ -2,13 +2,13 @@ return {
   "echasnovski/mini.surround",
   opts = {
     mappings = {
-      add = "<leader>ca",
-      delete = "<leader>cd",
-      find = "csf",
-      find_left = "csF",
-      highlight = "csh",
-      replace = "csr",
-      update_n_lines = "csn",
+      add = "<leader>cA",
+      delete = "<leader>cD",
+      find = "gsf",
+      find_left = "gsF",
+      highlight = "gsh",
+      replace = "gsr",
+      update_n_lines = "gsn",
     },
   },
 }
