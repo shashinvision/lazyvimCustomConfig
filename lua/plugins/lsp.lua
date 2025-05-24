@@ -1,14 +1,7 @@
 return {
-
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "folke/neodev.nvim",
-    },
     opts = function(_, opts)
-      opts = opts or {}
-      opts.inlay_hints = { enabled = true }
       opts.servers = opts.servers or {}
 
       opts.servers.omnisharp = {
@@ -18,116 +11,27 @@ return {
         enable_import_completion = true,
       }
 
-      opts.servers.tailwindcss = {
-        root_dir = function(...)
-          return require("lspconfig.util").root_pattern(".git")(...)
-        end,
+      opts.servers.tsserver = opts.servers.tsserver or {}
+      opts.servers.eslint = opts.servers.eslint or {}
+
+      opts.ensure_installed = {
+        "tsserver",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "svelte",
+        "angularls",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "prismals",
+        "pyright",
+        "ruff_lsp",
+        "eslint",
+        "tailwindcss",
+        "jsonls",
+        "omnisharp",
       }
-      opts.servers.tsserver = {
-        root_dir = function(...)
-          return require("lspconfig.util").root_pattern(".git")(...)
-        end,
-        single_file_support = false,
-        settings = {
-          completions = {
-            completeFunctionCalls = true,
-          },
-          typescript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "literal",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = false,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-            target = "ESNext",
-            module = "ESNext",
-          },
-          javascript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "all",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-            target = "ESNext",
-            module = "ESNext",
-          },
-        },
-      }
-
-      opts.servers.volar = {
-        filetypes = { "vue", "typescript", "javascript" },
-        root_dir = require("lspconfig.util").root_pattern("package.json", "vue.config.js", ".git"),
-        settings = {
-          vue = {
-            inlayHints = {
-              enumMemberValues = true,
-              functionLikeReturnTypes = true,
-              functionParameters = true,
-              propertyDeclarationTypes = true,
-              variableTypes = true,
-            },
-          },
-        },
-      }
-
-      opts.servers.svelte = {
-        root_dir = require("lspconfig.util").root_pattern("package.json", ".git"),
-      }
-
-      -- FIX Angular error
-      local ok, mason_registry = pcall(require, "mason-registry")
-      if not ok then
-        vim.notify("mason-registry could not be loaded")
-        return
-      end
-
-      local angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
-
-      local cmd = {
-        angularls_path .. "/node_modules/@angular/language-server/bin/ngserver",
-        "--stdio",
-        "--tsProbeLocations",
-        angularls_path .. "/node_modules",
-        "--ngProbeLocations",
-        angularls_path .. "/node_modules/@angular/language-server",
-      }
-
-      opts.servers.angularls = {
-        cmd = cmd,
-        on_new_config = function(new_config, new_root_dir)
-          new_config.cmd = cmd
-        end,
-        root_dir = require("lspconfig.util").root_pattern("angular.json", "package.json", ".git"),
-      }
-      -- END FIX Angular error
-
-      opts.servers.eslint = {
-        settings = {
-          packageManager = "npm",
-          codeActionOnSave = {
-            enable = true,
-            mode = "all",
-          },
-        },
-        on_attach = function(client, bufnr)
-          if client.name == "eslint" then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = bufnr,
-              callback = function()
-                vim.cmd("EslintFixAll")
-              end,
-            })
-          end
-        end,
-      }
-
       opts.servers.emmet_ls = {
         filetypes = {
           "html",
@@ -147,99 +51,42 @@ return {
         init_options = {
           html = {
             options = {
+              -- Para forzar atributos con comillas
               ["bem.enabled"] = true,
             },
           },
         },
       }
-
-      opts.servers.yamlls = {
+      opts.servers.tsserver = {
         settings = {
-          yaml = {
-            keyOrdering = false,
+          completions = {
+            completeFunctionCalls = true,
+          },
+          javascript = {
+            target = "ESNext",
+            module = "ESNext",
+          },
+          typescript = {
+            target = "ESNext",
+            module = "ESNext",
           },
         },
       }
-
-      opts.servers.lua_ls = {
-        single_file_support = true,
+      opts.servers.eslint = {
         settings = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            completion = {
-              workspaceWord = true,
-              callSnippet = "Both",
-            },
-            hint = {
-              enable = true,
-              setType = false,
-              paramType = true,
-              paramName = "Disable",
-              semicolon = "Disable",
-              arrayIndex = "Disable",
-            },
-            doc = { privateName = { "^_" } },
-            type = { castNumberToInteger = true },
-            diagnostics = {
-              disable = { "incomplete-signature-doc", "trailing-space" },
-              groupSeverity = {
-                strong = "Warning",
-                strict = "Warning",
-              },
-              groupFileStatus = {
-                ["ambiguity"] = "Opened",
-                ["await"] = "Opened",
-                ["codestyle"] = "None",
-                ["duplicate"] = "Opened",
-                ["global"] = "Opened",
-                ["luadoc"] = "Opened",
-                ["redefined"] = "Opened",
-                ["strict"] = "Opened",
-                ["strong"] = "Opened",
-                ["type-check"] = "Opened",
-                ["unbalanced"] = "Opened",
-                ["unused"] = "Opened",
-              },
-              unusedLocalExclude = { "_*" },
-            },
-            format = {
-              enable = false,
-              defaultConfig = {
-                indent_style = "space",
-                indent_size = "2",
-                continuation_indent_size = "2",
-              },
-            },
+          packageManager = "npm", -- o "yarn", "pnpm"
+          codeActionOnSave = {
+            enable = true,
+            mode = "all",
           },
         },
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
       }
-
-      opts.servers.cssls = {}
-      opts.servers.html = {}
-
-      return opts
-    end,
-
-    config = function(_, opts)
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-
-      -- Viene en la configuracion por defecto y esta deprecado
-      -- De esta manera lo desactivamos
-      opts.servers.ruff_lsp = nil
-
-      for server, server_opts in pairs(opts.servers or {}) do
-        local config_module = lspconfig[server]
-        if config_module and type(config_module.setup) == "function" then
-          local final_opts = vim.tbl_deep_extend("force", {
-            capabilities = capabilities,
-          }, server_opts or {})
-
-          config_module.setup(final_opts)
-        else
-          vim.notify("[LSP] El servidor '" .. server .. "' no está disponible en lspconfig.", vim.log.levels.WARN)
-        end
-      end
     end,
   },
 }
