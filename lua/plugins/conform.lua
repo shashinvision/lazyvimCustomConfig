@@ -30,10 +30,5 @@ return {
         end,
       },
     },
-    -- Log errors but don't block saving
-    format_on_save = {
-      timeout_ms = 3000,
-      lsp_fallback = true, -- Fall back to LSP if formatter fails
-    },
   },
 }
