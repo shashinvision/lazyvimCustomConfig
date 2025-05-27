@@ -13,13 +13,27 @@ return {
       ["*.component.html"] = { "prettier" },
       -- C#
       cs = { "csharpier" },
-      -- Optional: CSS/SCSS if needed
+      -- CSS/SCSS
       css = { "prettier" },
       scss = { "prettier" },
     },
-
     formatters = {
-      prettier = {},
+      prettier = {
+        -- Skip formatting if Prettier fails
+        condition = function(ctx)
+          return vim.fs.find({ "prettier.config.js", ".prettierrc" }, { path = ctx.filename, upward = true })[1]
+            or vim.fs.find({ "package.json" }, { path = ctx.filename, upward = true })[1]
+        end,
+        -- Run in "range" mode for partial formatting
+        range_args = function(ctx)
+          return { "--range-start=" .. ctx.range.start[1], "--range-end=" .. ctx.range["end"][1] }
+        end,
+      },
+    },
+    -- Log errors but don't block saving
+    format_on_save = {
+      timeout_ms = 3000,
+      lsp_fallback = true, -- Fall back to LSP if formatter fails
     },
   },
 }
