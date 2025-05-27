@@ -16,6 +16,9 @@ return {
       -- CSS/SCSS
       css = { "prettier" },
       scss = { "prettier" },
+      json = { "prettier" },
+      yaml = { "prettier" },
+      markdown = { "prettier" },
     },
     formatters = {
       prettier = {
