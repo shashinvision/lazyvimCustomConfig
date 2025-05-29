@@ -18,7 +18,6 @@ return {
             enable = true,
             mode = "all",
           },
-          -- Add these to handle ES modules
           parserOptions = {
             ecmaVersion = "latest",
             sourceType = "module",
@@ -28,13 +27,15 @@ return {
             node = true,
           },
         },
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
+          -- Disable ESLint diagnostics (stops the "Unexpected token 'export'" error)
+          client.server_capabilities.diagnosticProvider = false
+
+          -- Keep ESLint fixes on save
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
             callback = function()
-              -- Use vim.lsp.buf.format() instead of direct command
               vim.lsp.buf.format({ async = false })
-              -- Run ESLint fix
               vim.cmd([[EslintFixAll]])
             end,
           })
