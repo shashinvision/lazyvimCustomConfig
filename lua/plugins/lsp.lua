@@ -11,27 +11,37 @@ return {
         enable_import_completion = true,
       }
 
-      opts.servers.tsserver = opts.servers.tsserver or {}
-      opts.servers.eslint = opts.servers.eslint or {}
-
-      opts.ensure_installed = {
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
-        "angularls",
-        "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
-        "pyright",
-        "ruff_lsp",
-        "eslint",
-        "tailwindcss",
-        "jsonls",
-        "omnisharp",
+      opts.servers.eslint = {
+        settings = {
+          packageManager = "npm",
+          codeActionOnSave = {
+            enable = true,
+            mode = "all",
+          },
+          -- Add these to handle ES modules
+          parserOptions = {
+            ecmaVersion = "latest",
+            sourceType = "module",
+          },
+          env = {
+            es2021 = true,
+            node = true,
+          },
+        },
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+              -- Use vim.lsp.buf.format() instead of direct command
+              vim.lsp.buf.format({ async = false })
+              -- Run ESLint fix
+              vim.cmd([[EslintFixAll]])
+            end,
+          })
+        end,
       }
+
+      opts.servers.tsserver = opts.servers.tsserver or {}
       opts.servers.emmet_ls = {
         filetypes = {
           "html",
@@ -51,56 +61,28 @@ return {
         init_options = {
           html = {
             options = {
-              -- Para forzar atributos con comillas
               ["bem.enabled"] = true,
             },
           },
         },
       }
-      opts.servers.tsserver = {
-        settings = {
-          completions = {
-            completeFunctionCalls = true,
-          },
-          javascript = {
-            target = "ESNext",
-            module = "ESNext",
-          },
-          typescript = {
-            target = "ESNext",
-            module = "ESNext",
-          },
-        },
-      }
-      -- Improved ESLint configuration
-      opts.servers.eslint = {
-        settings = {
-          packageManager = "npm",
-          codeActionOnSave = {
-            enable = true,
-            mode = "all",
-          },
-          -- Add these to handle ES modules
-          parserOptions = {
-            ecmaVersion = "latest",
-            sourceType = "module",
-          },
-          env = {
-            es2021 = true,
-            node = true,
-          },
-        },
-        on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-              -- Use vim.lsp.buf.format() instead of direct command
-              vim.lsp.buf.format({ async = false })
-              -- Run ESLint fix
-              vim.cmd([[EslintFixAll]])
-            end,
-          })
-        end,
+
+      opts.ensure_installed = {
+        "tsserver",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "svelte",
+        "angularls",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "prismals",
+        "pyright",
+        "ruff_lsp",
+        "eslint",
+        "jsonls",
+        "omnisharp",
       }
     end,
   },
