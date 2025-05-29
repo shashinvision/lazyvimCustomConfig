@@ -72,18 +72,33 @@ return {
           },
         },
       }
+      -- Improved ESLint configuration
       opts.servers.eslint = {
         settings = {
-          packageManager = "npm", -- o "yarn", "pnpm"
+          packageManager = "npm",
           codeActionOnSave = {
             enable = true,
             mode = "all",
           },
+          -- Add these to handle ES modules
+          parserOptions = {
+            ecmaVersion = "latest",
+            sourceType = "module",
+          },
+          env = {
+            es2021 = true,
+            node = true,
+          },
         },
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
-            command = "EslintFixAll",
+            callback = function()
+              -- Use vim.lsp.buf.format() instead of direct command
+              vim.lsp.buf.format({ async = false })
+              -- Run ESLint fix
+              vim.cmd([[EslintFixAll]])
+            end,
           })
         end,
       }
