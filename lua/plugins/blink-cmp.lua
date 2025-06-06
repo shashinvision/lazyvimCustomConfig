@@ -4,7 +4,6 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
-      "ray-x/cmp-sql",
       -- "Exafunction/windsurf.vim", -- Codeium
     },
     version = "*", -- "1.*"
@@ -39,7 +38,7 @@ return {
 
       sources = {
         -- default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "codeium" },
-        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+        default = { "lsp", "path", "snippets", "buffer", "emoji" },
         providers = {
           emoji = {
             module = "blink-emoji",
@@ -48,15 +47,6 @@ return {
             opts = { insert = true },
             should_show_items = function()
               return vim.tbl_contains({ "gitcommit", "markdown" }, vim.o.filetype)
-            end,
-          },
-          sql = {
-            name = "sql",
-            module = "blink.compat.source",
-            score_offset = -3,
-            opts = {},
-            should_show_items = function()
-              return vim.tbl_contains({ "sql" }, vim.o.filetype)
             end,
           },
           -- codeium = {
