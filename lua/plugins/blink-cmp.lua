@@ -5,7 +5,7 @@ return {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
       "ray-x/cmp-sql",
-      "Exafunction/windsurf.vim", -- Codeium
+      -- "Exafunction/windsurf.vim", -- Codeium
     },
     version = "*", -- "1.*"
     lazy = true,
@@ -38,7 +38,8 @@ return {
       },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "codeium" },
+        -- default = { "lsp", "path", "snippets", "buffer", "emoji", "sql", "codeium" },
+        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
         providers = {
           emoji = {
             module = "blink-emoji",
@@ -58,12 +59,12 @@ return {
               return vim.tbl_contains({ "sql" }, vim.o.filetype)
             end,
           },
-          codeium = {
-            name = "codeium",
-            module = "blink.compat.source",
-            score_offset = 5, -- Adjust as needed
-            opts = {},
-          },
+          -- codeium = {
+          --   name = "codeium",
+          --   module = "blink.compat.source",
+          --   score_offset = 5, -- Adjust as needed
+          --   opts = {},
+          -- },
         },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
