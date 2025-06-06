@@ -3,6 +3,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+
       -- Fuentes de completado
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -13,8 +14,7 @@ return {
       "petertriho/cmp-git",
 
       -- IA
-      "zbirenbaum/copilot-cmp",
-      "Exafunction/codeium.nvim",
+      "Exafunction/windsurf.nvim",
 
       -- Snippets
       {
@@ -54,6 +54,7 @@ return {
       -- Mejoras visuales
       "onsails/lspkind.nvim",
     },
+
     config = function(_, opts)
       local cmp = require("cmp")
 
@@ -63,9 +64,7 @@ return {
           { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
           { name = "emmet_vim", group_index = 1 }, -- Add Emmet as high priority source
-          { name = "copilot", group_index = 2 }, -- Prioridad media (IA)
-          -- { name = "avante", group_index = 2 }, -- Prioridad media (IA)
-          { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
+          -- { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
           { name = "buffer", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "path", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "nvim_lua", keyword_length = 1 }, -- Bajo prioridad pero rápido
@@ -94,15 +93,13 @@ return {
             ellipsis_char = "...",
             show_labelDetails = true,
             symbol_map = {
-              Copilot = "",
-              Avante = "",
-              Codeium = "",
+              -- Copilot = "",
+              -- Codeium = "",
               emmet_vim = "", -- Emmet icon
             },
             menu = {
-              -- avante = "[Avante]",
-              copilot = "[Copilot]",
-              codeium = "[Codeium]",
+              -- copilot = "[Copilot]",
+              -- codeium = "[Codeium]",
               emmet_vim = "[Emmet]", -- Emmet menu entry
               nvim_lsp = "[LSP]",
               luasnip = "[Snip]",

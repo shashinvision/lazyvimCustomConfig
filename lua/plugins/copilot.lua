@@ -2,6 +2,8 @@ return {
   -- Copilot core plugin en Lua
   {
     "zbirenbaum/copilot.lua",
+    dependencies = { "hrsh7th/nvim-cmp" },
+
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
@@ -16,15 +18,6 @@ return {
           },
         },
         panel = { enabled = false },
-      })
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = { "zbirenbaum/copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup({
-        method = "getCompletionsCycling",
       })
     end,
   },
