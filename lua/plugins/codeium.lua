@@ -53,18 +53,19 @@ return {
         auto_insert_mode = false,
         tools = {
           language_server = {
-            completion = {
-              model = "default",
-              system_prompt = [[
-You are an expert programmer. Your task is to provide concise and efficient code completions.
-Follow these guidelines:
-1. Respect the existing coding style
-2. Prioritize modern patterns and best practices
-3. Focus on security and performance
-4. Include helpful comments for complex logic
-5. Complete any missing error handling when appropriate
-]],
-            },
+            completion = false,
+            --             completion = {
+            --               model = "default",
+            --               system_prompt = [[
+            -- You are an expert programmer. Your task is to provide concise and efficient code completions.
+            -- Follow these guidelines:
+            -- 1. Respect the existing coding style
+            -- 2. Prioritize modern patterns and best practices
+            -- 3. Focus on security and performance
+            -- 4. Include helpful comments for complex logic
+            -- 5. Complete any missing error handling when appropriate
+            -- ]],
+            --             },
           },
           chat = {
             model = "default",
