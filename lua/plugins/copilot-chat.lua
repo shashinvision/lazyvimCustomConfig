@@ -62,7 +62,7 @@ return {
         "Le estaba contando la otra vez que tenía una condición que es de adulto altamente calificado, no sé si la conocen, pero no es buena… Lo estaba hablando con mi mujer y cuando yo era chico mi mamá me dijo que me habían encontrado una condición de IQ muy elevado, nivel 5 o 6 años por delante de un niño común."
       ]],
       -- model = "gemini-2.5-pro",
-      answer_header = "󱗞  The Gentleman 󱗞  ",
+      answer_header = "⚔️ ShashinV — Code Warrior ⚔️",
       auto_insert_mode = true,
       window = {
         layout = "horizontal",
