@@ -51,6 +51,9 @@ return {
       require("codeium").setup({
         enable_chat = true,
         auto_insert_mode = false,
+        suggestion = {
+          enabled = false,
+        },
         tools = {
           language_server = {
             completion = {
