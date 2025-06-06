@@ -5,6 +5,7 @@ return {
       "nvim-lua/plenary.nvim",
       "saghen/blink.cmp",
     },
+
     keys = {
       {
         "<C-CR>",
@@ -104,20 +105,5 @@ Follow these guidelines:
         },
       })
     end,
-  },
-  {
-    "saghen/blink.cmp",
-    optional = true,
-    opts = {
-      sources = {
-        providers = {
-          path = {
-            enabled = function()
-              return vim.bo.filetype ~= "codeium-chat" -- cambia a codeium si aplica
-            end,
-          },
-        },
-      },
-    },
   },
 }
