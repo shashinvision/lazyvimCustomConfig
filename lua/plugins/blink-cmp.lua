@@ -9,7 +9,6 @@ return {
     version = "*", -- "1.*"
     lazy = true,
     opts = {
-
       completion = {
         menu = {
           winblend = vim.o.pumblend,
