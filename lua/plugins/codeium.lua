@@ -7,43 +7,6 @@ return {
     },
 
     keys = {
-      {
-        "<C-CR>",
-        function()
-          return vim.fn["codeium#Accept"]()
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Accept",
-      },
-      {
-        "<C-p>",
-        function()
-          return vim.fn
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Next",
-      },
-      {
-        "<C-n>",
-        function()
-          return vim.fn["codeium#CycleCompletions"](-1)
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Prev",
-      },
-
-      {
-        "<C-e>",
-        function()
-          return vim.fn["codeium#Clear"]()
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Clear",
-      },
       { "<leader>aA", "<cmd>Codeium Auth<cr>", mode = "n", desc = "Codeium: Auth" },
       { "<leader>aC", "<cmd>Codeium Chat<cr>", mode = "n", desc = "Codeium Chat" },
     },
