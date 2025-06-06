@@ -1,5 +1,4 @@
 return {
-  -- Copilot core plugin en Lua
   {
     "zbirenbaum/copilot.lua",
     dependencies = { "hrsh7th/nvim-cmp" },
