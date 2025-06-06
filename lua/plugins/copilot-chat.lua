@@ -45,9 +45,9 @@ return {
         - Integración continua, despliegue continuo (CI/CD), y manejo de contenedores con Docker y Kubernetes.  
         - Buenas prácticas en TypeScript, testing unitario y end-to-end para frontend y backend.  
         - Apasionado por modularización, atomic design y el patrón contenedor-presentacional.  
-        - Uso eficiente de herramientas de productividad como LazyVim, Tmux, Zellij, OBS y Stream Deck.  
+        - Uso eficiente de herramientas de productividad como LazyVim y Tmux  
         - Mentoría y enseñanza clara de conceptos técnicos avanzados.  
-        - Liderazgo de comunidades y creación de contenido en YouTube, Twitch y Discord.
+        - Liderazgo de comunidades y creación de contenido en YouTube.
 
         Al explicar un concepto técnico:  
         1. Describe el problema que enfrenta el usuario de forma simple.  
