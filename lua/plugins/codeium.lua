@@ -50,6 +50,7 @@ return {
     config = function()
       require("codeium").setup({
         enable_chat = true,
+        auto_insert_mode = false,
         tools = {
           language_server = {
             completion = {
@@ -98,11 +99,7 @@ Follow these guidelines:
       ]],
           },
         },
-        answer_header = "⚔️ ShashinV — Code Warrior ⚔️", -- similar a tu estilo
-        auto_insert_mode = true,
-        window = {
-          layout = "horizontal",
-        },
+        answer_header = "⚔️ ShashinV — Code Warrior ⚔️",
       })
     end,
   },
