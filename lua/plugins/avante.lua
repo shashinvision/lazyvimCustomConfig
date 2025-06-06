@@ -22,7 +22,7 @@ return {
     providers = {
       ollama = {
         endpoint = "http://localhost:11434",
-        model = "codellama:latest",
+        model = "codegemma:latest",
       },
     },
     prompts = {
