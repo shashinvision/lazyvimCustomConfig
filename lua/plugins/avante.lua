@@ -25,6 +25,19 @@ return {
         model = "gemma3:latest",
       },
     },
+    prompts = {
+      chat = {
+        system_prompt = [[
+          You are a helpful coding assistant. When answering questions:
+          - Provide clear, well-structured explanations
+          - Include code examples when appropriate
+          - Focus on practical solutions
+          - Consider edge cases and error handling
+          - Explain your reasoning for complex decisions
+          - When suggesting refactors, explain the benefits
+        ]],
+      },
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
