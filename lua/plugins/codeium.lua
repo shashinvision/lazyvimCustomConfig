@@ -65,7 +65,6 @@ return {
       ]],
           },
         },
-        answer_header = "⚔️ ShashinV — Code Warrior ⚔️",
       })
     end,
   },
