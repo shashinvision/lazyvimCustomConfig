@@ -7,4 +7,5 @@ return {
   -- "kylechui/nvim-surround",
   "nvim-treesitter/nvim-treesitter",
   "machakann/vim-sandwich",
+  "onsails/lspkind.nvim",
 }

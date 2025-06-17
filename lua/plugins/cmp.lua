@@ -12,69 +12,6 @@ return {
       "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
       "petertriho/cmp-git",
-
-      -- IA
-      "Exafunction/windsurf.nvim",
-
-      -- Snippets
-      {
-        "L3MON4D3/LuaSnip",
-        version = "v2.*",
-        build = "make install_jsregexp",
-        dependencies = {
-          "rafamadriz/friendly-snippets",
-          "saadparwaiz1/cmp_luasnip",
-          { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-          {
-            "honza/vim-snippets",
-            lazy = true,
-          },
-        },
-        lazy = true,
-        config = function()
-          local ls = require("luasnip")
-
-          -- Extensiones de filetype
-          ls.filetype_extend("typescript", { "javascript" })
-          ls.filetype_extend("typescriptreact", { "javascript", "html" })
-
-          -- Carga de snippets
-          require("luasnip.loaders.from_vscode").lazy_load()
-          require("luasnip.loaders.from_snipmate").lazy_load({
-            paths = {
-              vim.fn.stdpath("data") .. "/lazy/vim-snippets",
-              vim.fn.stdpath("config") .. "/snippets",
-            },
-          })
-        end,
-      },
-
-      -- Emmet integration
-      {
-        "mattn/emmet-vim",
-        init = function()
-          -- Set up Emmet only for HTML and CSS-like files
-          vim.g.user_emmet_mode = "inv" -- enable all functions in all modes
-          vim.g.user_emmet_leader_key = "<C-z>"
-          vim.g.user_emmet_settings = {
-            indent_blockelement = 1,
-            languages = {
-              html = {
-                extends = "css",
-              },
-              javascriptreact = {
-                extends = "jsx",
-              },
-              typescriptreact = {
-                extends = "jsx",
-              },
-            },
-          }
-        end,
-      },
-
-      -- Mejoras visuales
-      "onsails/lspkind.nvim",
     },
 
     config = function(_, opts)
