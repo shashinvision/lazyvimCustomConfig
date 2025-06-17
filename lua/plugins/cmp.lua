@@ -17,14 +17,31 @@ return {
       "Exafunction/windsurf.nvim",
 
       -- Snippets
+      { "saadparwaiz1/cmp_luasnip" },
+      { "rafamadriz/friendly-snippets" },
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+      {
+        "honza/vim-snippets",
+        lazy = true,
+      },
       {
         "L3MON4D3/LuaSnip",
-        version = "v2.*",
-        build = "make install_jsregexp",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        config = function()
-          require("luasnip.loaders.from_vscode").lazy_load()
-        end,
+        opts = {
+          config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_snipmate").lazy_load({
+              paths = {
+                vim.fn.stdpath("data") .. "/lazy/vim-snippets",
+                vim.fn.stdpath("config") .. "/snippets",
+              },
+            })
+
+            -- Extender filetypes
+            local ls = require("luasnip")
+            ls.filetype_extend("typescript", { "javascript" })
+            ls.filetype_extend("typescriptreact", { "javascript", "html" })
+          end,
+        },
       },
 
       -- Emmet integration
@@ -64,6 +81,7 @@ return {
           { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
           { name = "emmet_vim", group_index = 1 }, -- Add Emmet as high priority source
+          { name = "friendly-snippets", group_index = 1 },
           -- { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
           { name = "buffer", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "path", keyword_length = 1 }, -- Bajo prioridad pero rápido
