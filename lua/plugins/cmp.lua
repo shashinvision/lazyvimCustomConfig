@@ -19,11 +19,15 @@ return {
 
       -- Configuración base
       opts = vim.tbl_deep_extend("force", {
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
         sources = {
-          { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
+          { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "emmet_vim", group_index = 1 }, -- Add Emmet as high priority source
-          { name = "friendly-snippets", group_index = 1 },
           -- { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
           { name = "buffer", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "path", keyword_length = 1 }, -- Bajo prioridad pero rápido
@@ -37,6 +41,16 @@ return {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<C-CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif require("luasnip").expand_or_jumpable() then
+              require("luasnip").expand_or_jump()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+
           ["<C-y>"] = cmp.mapping(function()
             -- Emmet expand mapping
             if vim.fn["emmet#expandAbbrIntelligent"](1) == 1 then
@@ -60,9 +74,9 @@ return {
             menu = {
               -- copilot = "[Copilot]",
               -- codeium = "[Codeium]",
+              luasnip = "[Snip]",
               emmet_vim = "[Emmet]", -- Emmet menu entry
               nvim_lsp = "[LSP]",
-              luasnip = "[Snip]",
               buffer = "[Buf]",
               path = "[Path]",
               nvim_lua = "[Lua]",
