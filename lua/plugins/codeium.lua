@@ -1,67 +1,66 @@
 return {
-  {
-    "Exafunction/windsurf.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
+  "Exafunction/windsurf.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "hrsh7th/nvim-cmp",
+  },
+
+  keys = {
+    -- Atajos en modo inserción (estilo Copilot)
+    {
+      "<C-CR>",
+      function()
+        return vim.fn["codeium#Accept"]()
+      end,
+      mode = "i",
+      expr = true,
+      desc = "Codeium: Accept",
+    },
+    {
+      "<C-p>",
+      function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end,
+      mode = "i",
+      expr = true,
+      desc = "Codeium: Next",
+    },
+    {
+      "<C-n>",
+      function()
+        return vim.fn["codeium#CycleCompletions"](-1)
+      end,
+      mode = "i",
+      expr = true,
+      desc = "Codeium: Prev",
+    },
+    {
+      "<C-e>",
+      function()
+        return vim.fn["codeium#Clear"]()
+      end,
+      mode = "i",
+      expr = true,
+      desc = "Codeium: Clear",
     },
 
-    keys = {
-      -- Atajos en modo inserción (estilo Copilot)
-      {
-        "<C-CR>",
-        function()
-          return vim.fn["codeium#Accept"]()
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Accept",
-      },
-      {
-        "<C-p>",
-        function()
-          return vim.fn["codeium#CycleCompletions"](1)
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Next",
-      },
-      {
-        "<C-n>",
-        function()
-          return vim.fn["codeium#CycleCompletions"](-1)
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Prev",
-      },
-      {
-        "<C-e>",
-        function()
-          return vim.fn["codeium#Clear"]()
-        end,
-        mode = "i",
-        expr = true,
-        desc = "Codeium: Clear",
-      },
+    -- Comandos en modo normal
+    { "<leader>aA", "<cmd>Codeium Auth<cr>", mode = "n", desc = "Codeium: Auth" },
+    { "<leader>aC", "<cmd>Codeium Chat<cr>", mode = "n", desc = "Codeium Chat" },
+  },
 
-      -- Comandos en modo normal
-      { "<leader>aA", "<cmd>Codeium Auth<cr>", mode = "n", desc = "Codeium: Auth" },
-      { "<leader>aC", "<cmd>Codeium Chat<cr>", mode = "n", desc = "Codeium Chat" },
-    },
-
-    config = function()
-      require("codeium").setup({
-        enable_chat = true,
-        auto_insert_mode = false,
-        suggestion = {
-          enabled = false,
-        },
-        tools = {
-          language_server = {
-            completion = {
-              model = "default",
-              system_prompt = [[
+  config = function()
+    require("codeium").setup({
+      enable_chat = true,
+      auto_insert_mode = false,
+      suggestion = {
+        enabled = false,
+      },
+      tools = {
+        language_server = {
+          completion = {
+            model = "default",
+            system_prompt = [[
                 You are an expert programmer. Your task is to provide concise and efficient code completions.
                 Follow these guidelines:
                 1. Respect the existing coding style
@@ -70,11 +69,11 @@ return {
                 4. Include helpful comments for complex logic
                 5. Complete any missing error handling when appropriate
                 ]],
-            },
           },
-          chat = {
-            model = "default",
-            system_prompt = [[
+        },
+        chat = {
+          model = "default",
+          system_prompt = [[
         Este GPT es un clon del usuario, un desarrollador full stack con amplia experiencia en arquitectura limpia, hexagonal y separación de lógica en aplicaciones escalables. Tiene un enfoque técnico, práctico y directo, siempre con explicaciones claras y aplicables, acompañadas de ejemplos útiles para desarrolladores de nivel intermedio y avanzado.
 
         Su tono es profesional pero cercano, relajado, con un toque de humor inteligente. Evita formalismos excesivos, usa un lenguaje directo y técnico cuando hace falta, pero accesible y sin vueltas. Su estilo auténtico, sin clichés, e incorpora expresiones como “buenas acá estamos” o “dale que va” según el contexto.
@@ -103,9 +102,8 @@ return {
         Ejemplo del estilo de comunicación:  
         "Le estaba contando la otra vez que tenía una condición que es de adulto altamente calificado, no sé si la conocen, pero no es buena… Lo estaba hablando con mi mujer y cuando yo era chico mi mamá me dijo que me habían encontrado una condición de IQ muy elevado, nivel 5 o 6 años por delante de un niño común."
       ]],
-          },
         },
-      })
-    end,
-  },
+      },
+    })
+  end,
 }

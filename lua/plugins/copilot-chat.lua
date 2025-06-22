@@ -25,14 +25,14 @@ local prompts = {
 -- Plugin configuration
 -- This table contains the configuration for various plugins used in Neovim.
 return {
-  {
-    -- Copilot Chat plugin configuration
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "main",
-    cmd = "CopilotChat",
-    opts = {
-      prompts = prompts,
-      system_prompt = [[
+
+  -- Copilot Chat plugin configuration
+  "CopilotC-Nvim/CopilotChat.nvim",
+  branch = "main",
+  cmd = "CopilotChat",
+  opts = {
+    prompts = prompts,
+    system_prompt = [[
         Este GPT es un clon del usuario, un desarrollador full stack con amplia experiencia en arquitectura limpia, hexagonal y separación de lógica en aplicaciones escalables. Tiene un enfoque técnico, práctico y directo, siempre con explicaciones claras y aplicables, acompañadas de ejemplos útiles para desarrolladores de nivel intermedio y avanzado.
 
         Su tono es profesional pero cercano, relajado, con un toque de humor inteligente. Evita formalismos excesivos, usa un lenguaje directo y técnico cuando hace falta, pero accesible y sin vueltas. Su estilo auténtico, sin clichés, e incorpora expresiones como “buenas acá estamos” o “dale que va” según el contexto.
@@ -61,78 +61,77 @@ return {
         Ejemplo del estilo de comunicación:  
         "Le estaba contando la otra vez que tenía una condición que es de adulto altamente calificado, no sé si la conocen, pero no es buena… Lo estaba hablando con mi mujer y cuando yo era chico mi mamá me dijo que me habían encontrado una condición de IQ muy elevado, nivel 5 o 6 años por delante de un niño común."
       ]],
-      -- model = "gemini-2.5-pro",
-      answer_header = "⚔️ ShashinV — Code Warrior ⚔️",
-      auto_insert_mode = true,
-      window = {
-        layout = "horizontal",
+    -- model = "gemini-2.5-pro",
+    answer_header = "⚔️ ShashinV — Code Warrior ⚔️",
+    auto_insert_mode = true,
+    window = {
+      layout = "horizontal",
+    },
+    mappings = {
+      complete = {
+        insert = "<Tab>",
       },
-      mappings = {
-        complete = {
-          insert = "<Tab>",
-        },
-        close = {
-          normal = "q",
-          insert = "<C-c>",
-        },
-        reset = {
-          normal = "<C-l>",
-          insert = "<C-l>",
-        },
-        submit_prompt = {
-          normal = "<CR>",
-          insert = "<C-s>",
-        },
-        toggle_sticky = {
-          normal = "grr",
-        },
-        clear_stickies = {
-          normal = "grx",
-        },
-        accept_diff = {
-          normal = "<C-y>",
-          insert = "<C-y>",
-        },
-        jump_to_diff = {
-          normal = "gj",
-        },
-        quickfix_answers = {
-          normal = "gqa",
-        },
-        quickfix_diffs = {
-          normal = "gqd",
-        },
-        yank_diff = {
-          normal = "gy",
-          register = '"', -- Default register to use for yanking
-        },
-        show_diff = {
-          normal = "gd",
-          full_diff = false, -- Show full diff instead of unified diff when showing diff window
-        },
-        show_info = {
-          normal = "gi",
-        },
-        show_context = {
-          normal = "gc",
-        },
-        show_help = {
-          normal = "gh",
-        },
+      close = {
+        normal = "q",
+        insert = "<C-c>",
+      },
+      reset = {
+        normal = "<C-l>",
+        insert = "<C-l>",
+      },
+      submit_prompt = {
+        normal = "<CR>",
+        insert = "<C-s>",
+      },
+      toggle_sticky = {
+        normal = "grr",
+      },
+      clear_stickies = {
+        normal = "grx",
+      },
+      accept_diff = {
+        normal = "<C-y>",
+        insert = "<C-y>",
+      },
+      jump_to_diff = {
+        normal = "gj",
+      },
+      quickfix_answers = {
+        normal = "gqa",
+      },
+      quickfix_diffs = {
+        normal = "gqd",
+      },
+      yank_diff = {
+        normal = "gy",
+        register = '"', -- Default register to use for yanking
+      },
+      show_diff = {
+        normal = "gd",
+        full_diff = false, -- Show full diff instead of unified diff when showing diff window
+      },
+      show_info = {
+        normal = "gi",
+      },
+      show_context = {
+        normal = "gc",
+      },
+      show_help = {
+        normal = "gh",
       },
     },
-    config = function(_, opts)
-      local chat = require("CopilotChat")
-
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "copilot-chat",
-        callback = function()
-          vim.opt_local.relativenumber = true
-          vim.opt_local.number = false
-        end,
-      })
-
-      chat.setup(opts)
-    end,
   },
+  config = function(_, opts)
+    local chat = require("CopilotChat")
+
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "copilot-chat",
+      callback = function()
+        vim.opt_local.relativenumber = true
+        vim.opt_local.number = false
+      end,
+    })
+
+    chat.setup(opts)
+  end,
 }
