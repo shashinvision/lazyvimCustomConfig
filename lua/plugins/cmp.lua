@@ -12,6 +12,7 @@ return {
       "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
       "petertriho/cmp-git",
+      "Exafunction/windsurf.nvim",
     },
 
     config = function(_, opts)
@@ -28,7 +29,7 @@ return {
           { name = "luasnip", group_index = 1 }, -- Máxima prioridad (snippets)
           { name = "nvim_lsp", group_index = 1 }, -- Máxima prioridad (LSP)
           { name = "emmet_vim", group_index = 1 }, -- Add Emmet as high priority source
-          -- { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
+          { name = "codeium", group_index = 2 }, -- Prioridad media (IA)
           { name = "buffer", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "path", keyword_length = 1 }, -- Bajo prioridad pero rápido
           { name = "nvim_lua", keyword_length = 1 }, -- Bajo prioridad pero rápido
@@ -68,12 +69,12 @@ return {
             show_labelDetails = true,
             symbol_map = {
               -- Copilot = "",
-              -- Codeium = "",
+              Codeium = "",
               emmet_vim = "", -- Emmet icon
             },
             menu = {
               -- copilot = "[Copilot]",
-              -- codeium = "[Codeium]",
+              codeium = "[Codeium]",
               luasnip = "[Snip]",
               emmet_vim = "[Emmet]", -- Emmet menu entry
               nvim_lsp = "[LSP]",
