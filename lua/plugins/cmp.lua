@@ -74,8 +74,8 @@ return {
             },
             menu = {
               -- copilot = "[Copilot]",
-              codeium = "[Codeium]",
               luasnip = "[Snip]",
+              codeium = "[Codeium]",
               emmet_vim = "[Emmet]", -- Emmet menu entry
               nvim_lsp = "[LSP]",
               buffer = "[Buf]",
