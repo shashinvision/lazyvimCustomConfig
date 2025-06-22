@@ -124,7 +124,7 @@ return {
 
       -- Enable Emmet for specific filetypes
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "html", "css", "javascriptreact", "typescriptreact", "svelte", "vue" },
+        pattern = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue" },
         callback = function()
           vim.cmd("EmmetInstall")
         end,

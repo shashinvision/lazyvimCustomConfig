@@ -24,7 +24,7 @@ return {
     })
 
     -- ✅ Si prefieres cargar todos sin condición (más inmediato):
-    -- require("luasnip.loaders.from_vscode").load()
+    require("luasnip.loaders.from_vscode").load()
 
     -- 💡 Custom Snippets
     require("luasnip.loaders.from_lua").load({
