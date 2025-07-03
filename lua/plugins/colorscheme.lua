@@ -3,6 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
+    lazy = false,
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- or latte, frappe, macchiato
@@ -17,10 +18,10 @@ return {
         highlight_overrides = {
           mocha = function(colors)
             return {
-              ["@keyword"] = { bg = colors.pink, fg = colors.base, bold = true },
-              ["@keyword.return"] = { bg = colors.pink, fg = colors.base, bold = true },
-              ["@keyword.function"] = { bg = colors.pink, fg = colors.base, bold = true },
-              Keyword = { bg = colors.pink, fg = colors.base, bold = true },
+              ["@keyword"] = { fg = colors.pink, bold = true, italic = true },
+              ["@keyword.return"] = { fg = colors.mauve, bold = true },
+              ["@keyword.function"] = { fg = colors.blue, bold = true },
+              Keyword = { fg = colors.pink, bold = true },
             }
           end,
         },
