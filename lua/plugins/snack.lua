@@ -98,15 +98,26 @@ return {
     input = { enabled = false },
     -- picker = { enabled = false },
     picker = {
-      hidden = true, -- for hidden files
-      ignored = true, -- for .gitignore files
-      ignore_patterns = { "node_modules", "%.git", "dist", "%.cache" }, -- no search in this paths
-      -- exclude = { -- aquí indicas carpetas/archivos a omitir siempre
-      --   "node_modules",
-      --   ".git",
-      --   ".cache",
-      --   "dist",
-      -- },
+      hidden = true,
+      ignored = true,
+      sources = {
+        -- When I search files
+        files = {
+          respect_gitignore = true,
+          follow_symlinks = false,
+          include_hidden = false,
+        },
+        grep = {
+          respect_gitignore = true,
+          -- When I search with grep
+          args = {
+            "--glob=!dist/**",
+            "--glob=build/**",
+            "--glob=!node_modules/**",
+            "--glob=!.angular/**",
+          },
+        },
+      },
     },
     notifier = { enabled = false },
     quickfile = { enabled = true },
