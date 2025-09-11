@@ -112,7 +112,7 @@ return {
           -- When I search with grep
           args = {
             "--glob=!dist/**",
-            "--glob=build/**",
+            "--glob=!build/**",
             "--glob=!node_modules/**",
             "--glob=!.angular/**",
           },
