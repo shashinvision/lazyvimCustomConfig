@@ -100,6 +100,13 @@ return {
     picker = {
       hidden = true, -- for hidden files
       ignored = true, -- for .gitignore files
+      ignore_patterns = { "node_modules", "%.git", "dist", "%.cache" }, -- no search in this paths
+      -- exclude = { -- aquí indicas carpetas/archivos a omitir siempre
+      --   "node_modules",
+      --   ".git",
+      --   ".cache",
+      --   "dist",
+      -- },
     },
     notifier = { enabled = false },
     quickfile = { enabled = true },
