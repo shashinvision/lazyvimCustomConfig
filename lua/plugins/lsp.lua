@@ -4,6 +4,12 @@ return {
     opts = function(_, opts)
       opts.servers = opts.servers or {}
 
+      -- Angular LS config
+      opts.servers.angularls = {
+        root_dir = require("lspconfig").util.root_pattern("angular.json", "project.json"),
+        filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
+      }
+
       opts.servers.omnisharp = {
         cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
         enable_roslyn_analyzers = true,
@@ -28,10 +34,7 @@ return {
           },
         },
         on_attach = function(client, bufnr)
-          -- Disable ESLint diagnostics (stops the "Unexpected token 'export'" error)
           client.server_capabilities.diagnosticProvider = false
-
-          -- Keep ESLint fixes on save
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
             callback = function()
@@ -43,6 +46,7 @@ return {
       }
 
       opts.servers.tsserver = opts.servers.tsserver or {}
+
       opts.servers.emmet_ls = {
         filetypes = {
           "html",
@@ -69,7 +73,7 @@ return {
       }
 
       opts.ensure_installed = {
-        "tsserver",
+        "ts_ls", -- Cambiado de tsserver a ts_ls (nombre nuevo)
         "html",
         "cssls",
         "tailwindcss",
