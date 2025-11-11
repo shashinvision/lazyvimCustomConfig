@@ -16,8 +16,8 @@ return {
       })
 
       -- Otros módulos de mini que quieras:
-      -- require("mini.pairs").setup()
-      -- require("mini.comment").setup()
+      require("mini.pairs").setup()
+      require("mini.comment").setup()
       -- require("mini.ai").setup()
     end,
   },
