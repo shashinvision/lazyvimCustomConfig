@@ -1,8 +1,16 @@
 return {
-  "catppuccin",
+  "catppuccin/nvim",
+  name = "catppuccin",
   optional = true,
-  opts = function()
-    local bufferline = require("catppuccin.groups.integrations.bufferline")
-    bufferline.get = bufferline.get or bufferline.get_theme
+  opts = function(_, opts)
+    opts.integrations = vim.tbl_deep_extend("force", opts.integrations or {}, {
+      bufferline = true,
+      treesitter = true,
+      cmp = true,
+      gitsigns = true,
+      nvimtree = true,
+      telescope = true,
+      which_key = true,
+    })
   end,
 }

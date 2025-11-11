@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+  -- build = ":TSUpdate",
   opts = {
     ensure_installed = {
       "c_sharp",
@@ -72,16 +72,4 @@ return {
       },
     },
   },
-
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
-
-    -- MDX
-    vim.filetype.add({
-      extension = {
-        mdx = "mdx",
-      },
-    })
-    vim.treesitter.language.register("markdown", "mdx")
-  end,
 }
