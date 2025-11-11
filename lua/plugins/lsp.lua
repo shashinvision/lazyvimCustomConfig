@@ -10,6 +10,18 @@ return {
         filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
       }
 
+      -- React
+      opts.servers.ts_ls = {
+        settings = {
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayFunctionParameterTypeHints = true,
+            },
+          },
+        },
+      }
+
       opts.servers.omnisharp = {
         cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
         enable_roslyn_analyzers = true,
@@ -73,7 +85,7 @@ return {
       }
 
       opts.ensure_installed = {
-        "ts_ls", -- Cambiado de tsserver a ts_ls (nombre nuevo)
+        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
