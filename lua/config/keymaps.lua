@@ -26,6 +26,15 @@ keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true }) --" Para sel
 keymap.set("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
 keymap.set("v", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true })
 
+-- LSP
+keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = true })
+keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true })
+keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
+keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
+keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true })
+keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
+
 -- for Vim-Bookmarks
 keymap.set("n", "<leader>B", "Vim-Bookmarks/Bracey", { noremap = true })
 keymap.set("n", "<leader>Bm", "<Plug>BookmarkToggle", { noremap = true })
