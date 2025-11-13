@@ -21,18 +21,20 @@ return {
           },
         },
       }
-      -- Para CSharp
-      local function get_dotnet_sdk_version()
-        local handle = io.popen("dotnet --version 2>/dev/null")
-        if not handle then
-          return nil
-        end
-        local result = handle:read("*a")
-        handle:close()
-        return result and vim.trim(result)
-      end
 
-      local sdk_version = get_dotnet_sdk_version() or "8.0.415"
+      -- CSharp and Dotnet with multiple versions
+
+      -- local function get_dotnet_sdk_version()
+      --   local handle = io.popen("dotnet --version 2>/dev/null")
+      --   if not handle then
+      --     return nil
+      --   end
+      --   local result = handle:read("*a")
+      --   handle:close()
+      --   return result and vim.trim(result)
+      -- end
+      --
+      -- local sdk_version = get_dotnet_sdk_version() or "8.0.415"
 
       opts.servers.omnisharp = {
         cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
@@ -49,10 +51,10 @@ return {
             EnableAnalyzersSupport = true,
             LocationPaths = {},
           },
-          Sdk = {
-            IncludePrereleases = false,
-            Version = sdk_version,
-          },
+          -- Sdk = {
+          --   IncludePrereleases = false,
+          --   Version = sdk_version,
+          -- },
           MsBuild = {
             LoadProjectsOnDemand = false,
           },
