@@ -7,6 +7,7 @@ return {
     },
     opts = function(_, opts)
       opts.servers = opts.servers or {}
+      local util = require("lspconfig.util")
 
       -- Angular LS config
       opts.servers.angularls = {
@@ -26,11 +27,18 @@ return {
         },
       }
 
+      -- Remember omnisharp always took the last SDK installed on your PC
       opts.servers.omnisharp = {
         cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,
         enable_import_completion = true,
+        root_dir = function(fname)
+          return util.root_pattern("*.sln", "*.csproj", ".git")(fname) or vim.fn.getcwd()
+        end,
+        handlers = {
+          ["textDocument/definition"] = require("omnisharp_extended").handler,
+        },
       }
 
       opts.servers.tsserver = opts.servers.tsserver or {}
