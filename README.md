@@ -93,6 +93,7 @@ end
 ```bash
 sudo apt update
 sudo apt install mono-complete
+sudo apt install cargo
 ```
 
 Or on Mac
